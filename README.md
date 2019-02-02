@@ -17,9 +17,11 @@ This program is a command shell that will be able to take in commands from user 
 # CLASS DESCRIPTION
 
 **window**
+
 The first class that our project will use will be the *window* class that generates the test box that the user interacts with and handles the input and output. 
 
 **composite**
+
 The group of classes that we are using will be part of a base that has the **compute()** function. This function be what is run throughout the tree to get the proper functionality.
 
 The group goes into one of two classes, the *command* class and the *separator* class.
