@@ -5,5 +5,5 @@
 
 William Montes SID: 862095355
 
-Wesley Devore	 SID: .........
+Wesley DeVore	 SID: 862081656
 
