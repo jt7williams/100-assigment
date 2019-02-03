@@ -41,7 +41,8 @@ The *semiColon* class will always run its left child **compute()** and then its 
 # PROTOTYPE/RESEARCH
 The fork(), waitpid(), and execvp() are system calls that provide services of the operating system to the user. 
 
-The system call fork() is used to create necessary processes. This system call takes no arguments and will return a process ID and its purpose is to create a new process that in turn will become the child process of the caller/parent. After the creation of this child process both the parent and child processes will execute on the next instruction. This is why it is important to distinguish between the parent process and the child process, which is usually done testing the return value of fork(). Thus, when fork() returns a value < 0, the creation of a subprocess/child process was unsuccessful. If fork() returns a value > 0,  then this is the parent process. Lastly, if fork() returns 0, then the creation of the child process was successful. 
+The system call fork() is used to create necessary processes. This system call takes no arguments and will return a process ID and its
+purpose is to create a new process that in turn will become the child process of the caller/parent. After the creation of this child process both the parent and child processes will execute on the next instruction. This is why it is important to distinguish between the parent process and the child process, which is usually done testing the return value of fork(). Thus, when fork() returns a value < 0, the creation of a subprocess/child process was unsuccessful. If fork() returns a value > 0,  then this is the parent process. Lastly, if fork() returns 0, then the creation of the child process was successful. 
 
 The system call execvp()  is part of the exec() family of functions that replace the current process image with a different image. Specifically, the function execvp() allows the caller to specify through an array of pointers with null terminating elements a list of commands available to the new program. For example, for the .cpp bellow execvp() is used with the command ps, which outputs to the console the information about any currently running processes. 
 
@@ -50,7 +51,7 @@ The waitpid() will suspend the calling process until the process specified by it
 ![](images/main.png)
 
 
-The main.cpp file above starts by creating a child process and storing its value in pid_t children. It then creates char* arg[2] ={"ps",NULL}, which is later used in execvp(arg[0],arg). It then checks for the value of children as it outputs to the console the processing ID of both the child and parent. Lastly, it calls waitpid(children, &status, WNOHANG|WUNTRACED ), which when in child-process will execute wait(NULL) followed by an output that will let the user know the ending status of the child process. The output of this code is presented below.
+The main.cpp file above, starts by creating a child process and storing its value in pid_t children. It then creates char* arg[2] ={"ps",NULL}, which is later used in execvp(arg[0],arg). It then checks for the value of children, as it outputs to the console the processing ID of both the child and parent. Lastly, it calls waitpid(children, &status, WNOHANG|WUNTRACED ), which when in child-process will execute wait(NULL) followed by an output that will let the user know the ending status of the child process. The output of this code is presented below.
 
 ![](images/output.jpg)
 
