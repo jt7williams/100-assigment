@@ -40,6 +40,9 @@ The *semiColon* class will always run its left child **compute()** and then its 
 
 # PROTOTYPE/RESEARCH
 ![](images/main.png)
+![](images/output.jpg)
+
+
 
 # ROADMAP & ISSUES
 
