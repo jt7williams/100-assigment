@@ -17,7 +17,9 @@ int main (int argv, char* argc[]){
 
 	if(children > 0){
 		
-		printf("We are in the  Pararent. Parent_ID: %d, The child is. child_ID: %d\n", getpid(), children);
+		printf("We are in the Parent.\n");
+		printf("	Parent_ID: %d\n", getpid());
+		printf("	 Child_ID: %d\n\n", children);
 	if(waitpid(children, &status , WNOHANG|WUNTRACED ) == 0){
 		wait(NULL);
 		
@@ -36,10 +38,13 @@ int main (int argv, char* argc[]){
 
 
 	if(children == 0){
-		printf("We are in the Child. Child_ID: %d, The parent is. Parent_ID: %d\n",getpid(), getppid());
-	printf("Calling execvp with command  <ps>\n");
-	execvp(arg[0], arg);	}
-
+		printf("We are in the Child.\n");
+		printf("	  Child_ID: %d\n",getpid());
+		printf("	 Parent_ID: %d\n", getppid());
+		printf("Calling execvp() with command  <ps>\n");
+	execvp(arg[0], arg);
+		
+	}
 	
 	if(children < 0){
 		perror("fork() error");
@@ -47,7 +52,6 @@ int main (int argv, char* argc[]){
 	}
 
 	return 0;
-
 
 
 }
