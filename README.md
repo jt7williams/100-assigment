@@ -50,6 +50,8 @@ The waitpid() will suspend the calling process until the process specified by it
 ![](images/main.png)
 
 
+The main.cpp file above starts by creating a child process and storing its value in pid_t children. It then creates char* arg[2] ={"ps",NULL}, which is later used in execvp(arg[0],arg). It then checks for the value of children as it outputs to the console the processing ID of both the child and parent. Lastly, it calls waitpid(children, &status, WNOHANG|WUNTRACED ), which when in child-process will execute wait(NULL) followed by an output that will let the user know the ending status of the child process. The output of this code is presented below.
+
 ![](images/output.jpg)
 
 
