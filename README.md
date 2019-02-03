@@ -39,6 +39,7 @@ The *or* class will run **compute()** on its left child and only run right child
 The *semiColon* class will always run its left child **compute()** and then its right child **compute()** if it has a right child.
 
 # PROTOTYPE/RESEARCH
+The fork(), waitpid(), and execvp() are system calls that provide services of the operating system to the user. The system call fork() is used to create necessary processes. This system call takes no arguments and will return a process ID and its purpose is to create a new process that in turn will become the child process of the caller/parent. After the creation of this child process both the parent and child processes will execute on the next instruction. This is why it is important to distinguish between the parent process and the child process, which is usually done testing the return value of fork(). Thus, when fork() returns a value < 0, the creation of a subprocess/child process was unsuccessful. If fork() returns a value > 0,  then this is the parent process. Lastly, if fork() returns 0, then the creation of the child process was successful. 
 ![](images/main.png)
 ![](images/output.jpg)
 
