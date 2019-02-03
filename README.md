@@ -46,7 +46,10 @@ The system call fork() is used to create necessary processes. This system call t
 The system call execvp()  is part of the exec() family of functions that replace the current process image with a different image. Specifically, the function execvp() allows the caller to specify through an array of pointers with null terminating elements a list of commands available to the new program. For example, for the .cpp bellow execvp() is used with the command ps, which outputs to the console the information about any currently running processes. 
 
 The waitpid() will suspend the calling process until the process specified by its first argument has terminated. When this process terminates the status of the termination will be stored in its second argument, specified through a pointer. After the execution of the waitpid() the calling process will resume execution. 
+
 ![](images/main.png)
+
+
 ![](images/output.jpg)
 
 
