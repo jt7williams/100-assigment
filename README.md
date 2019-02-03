@@ -39,6 +39,7 @@ The *or* class will run **compute()** on its left child and only run right child
 The *semiColon* class will always run its left child **compute()** and then its right child **compute()** if it has a right child.
 
 # PROTOTYPE/RESEARCH
+![](images/main.png)
 
 # ROADMAP & ISSUES
 
