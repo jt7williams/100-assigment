@@ -14,6 +14,8 @@ This program is a command shell that will be able to take in commands from user 
 
 # UML DIAGRAM
 
+![GitHub Logo](/images/uml_100.png)
+
 # CLASS DESCRIPTION
 
 **window**
