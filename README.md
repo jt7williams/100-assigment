@@ -14,7 +14,7 @@ This program is a command shell that will be able to take in commands from user 
 
 # UML DIAGRAM
 
-![GitHub Logo](/images/uml_100.png)
+![UML_Diagram](/images/uml_100.png)
 
 # CLASS DESCRIPTION
 
@@ -41,3 +41,27 @@ The *semiColon* class will always run its left child **compute()** and then its 
 # PROTOTYPE/RESEARCH
 
 # ROADMAP & ISSUES
+
+- [ ] [Create the window class](https://github.com/cs100/assignment-cs-100-wes-will/issues/1#issue-406038491) 
+
+- [ ] [Create the textbox that will handle i/o funcionality](https://github.com/cs100/assignment-cs-100-wes-will/issues/13#issue-406050156)
+
+- [ ] [Create the base class](https://github.com/cs100/assignment-cs-100-wes-will/issues/4#issue-406038685)
+
+- [ ] [Create the parsing function](https://github.com/cs100/assignment-cs-100-wes-will/issues/2#issue-406038594)
+
+- [ ] [Create the command class and its compute() function](https://github.com/cs100/assignment-cs-100-wes-will/issues/6#issue-406038747)
+
+- [ ] [Test the command class compute() function](https://github.com/cs100/assignment-cs-100-wes-will/issues/7#issue-406038798)
+
+- [ ] [Create the connector class](https://github.com/cs100/assignment-cs-100-wes-will/issues/5#issue-406038698)
+
+- [ ] [Create the and class](https://github.com/cs100/assignment-cs-100-wes-will/issues/8#issue-406038829)
+
+- [ ] [Create the or class](https://github.com/cs100/assignment-cs-100-wes-will/issues/9#issue-406038852)
+
+- [ ] [Create the semiColon class](https://github.com/cs100/assignment-cs-100-wes-will/issues/10#issue-406038892)
+
+- [ ] [Test the and or and semiColon class for correct ordering](https://github.com/cs100/assignment-cs-100-wes-will/issues/11#issue-406038956)
+
+- [ ] [Create the tree that holds base objects](https://github.com/cs100/assignment-cs-100-wes-will/issues/12#issue-406039017)
