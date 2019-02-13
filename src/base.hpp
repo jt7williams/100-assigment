@@ -5,7 +5,7 @@
 class base {
 
 	public:
-		//base(){};
+		base(){};
 		virtual void compute() {}
 
 
