@@ -1,3 +1,4 @@
+#include "src/base.hpp"
 #include <sys/types.h>
 #include <string>
 #include <unistd.h>

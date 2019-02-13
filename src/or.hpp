@@ -1,0 +1,14 @@
+#ifndef __or_hpp__
+#define __or_hpp__
+#include "connector.hpp"
+#include "base.hpp"
+
+class Or: public connector {
+public:
+	Or();
+	void compute();
+private:
+	base* command_left;
+	base* command_right;
+};
+#endif
