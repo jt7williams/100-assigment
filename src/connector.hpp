@@ -6,7 +6,7 @@ class connector: public base {
 
 public:
 	connector();
-	void compute();
+	bool compute();
 
 private:
 	base* command_left;

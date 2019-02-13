@@ -4,8 +4,8 @@
 
 class command : public base {
 public:
-	command() {};
-	void compute();
+	command();
+	bool compute();
 
 
 };

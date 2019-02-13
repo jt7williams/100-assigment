@@ -6,7 +6,9 @@
 class And: public connector {
 public:
 	And();
-	void compute();
+	bool compute();
+	void setRight(base* b);
+	void setLeft(base* b);
 private:
 	base* command_left;
 	base* command_right;

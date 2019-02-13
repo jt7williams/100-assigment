@@ -4,6 +4,14 @@ And::And() {
 
 }
 
-void And::compute() {
+bool And::compute() {
+	return true;
+}
 
+void And::setRight(base* b) {
+	command_right = b;
+}
+
+void And::setLeft(base* b) {
+	command_left=b;
 }

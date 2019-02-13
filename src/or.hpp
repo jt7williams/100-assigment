@@ -6,7 +6,9 @@
 class Or: public connector {
 public:
 	Or();
-	void compute();
+	bool compute();
+	void setLeft(base* b);
+	void setRight(base* b);
 private:
 	base* command_left;
 	base* command_right;

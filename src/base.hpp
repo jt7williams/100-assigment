@@ -6,7 +6,7 @@ class base {
 
 	public:
 		base(){};
-		virtual void compute() {}
+		virtual bool compute() {return 0;}
 
 
 };

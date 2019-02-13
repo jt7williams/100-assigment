@@ -1,9 +1,9 @@
 #include "command.hpp"
 
-/*command::command() {
+command::command() {
 
-}*/
+}
 
-void command::compute() {
-
+bool command::compute() {
+	return true;
 }
