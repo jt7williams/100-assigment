@@ -14,7 +14,7 @@ public:
 	command(std::string n);
 	bool compute();
 	void set_command(std::string n);
-
+	int type();
 
 };
 #endif

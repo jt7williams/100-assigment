@@ -8,6 +8,10 @@ bool Or::compute() {
 	return true;
 }
 
+int Or::type() {
+	return 2;
+}
+
 void Or::setRight(base* b) {
 	command_right=b;
 }

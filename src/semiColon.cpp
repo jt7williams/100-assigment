@@ -8,6 +8,10 @@ bool semiColon::compute() {
 	return true;
 }
 
+int semiColon::type() {
+	return 4;
+}
+
 void semiColon::setLeft(base* b) {
 	command_left=b;
 }

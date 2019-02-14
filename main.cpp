@@ -5,8 +5,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+
+using namespace std;
+
+void execute(base* b);
+base* parsing(string input);
+
 int main (int argv, char* argc[]){
-	pid_t children = fork();
+	/*	pid_t children = fork();
 	int status;
 		
 	char* arg[2];
@@ -51,8 +57,18 @@ int main (int argv, char* argc[]){
 		perror("fork() error");
 		exit(-1);
 	}
-
+	*/
+	
 	return 0;
 
 
+}
+
+base* parsing(string input) {
+	base* b;
+	return b;
+}
+
+void execute(base* b) {
+	b->compute();
 }

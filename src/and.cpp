@@ -8,6 +8,10 @@ bool And::compute() {
 	return true;
 }
 
+int And::type() {
+	return 3;
+}
+
 void And::setRight(base* b) {
 	command_right = b;
 }

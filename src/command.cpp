@@ -14,6 +14,9 @@ command::command(std::string n){
 	set_command(n);
 			
 }
+int command::type() {
+	return 1;
+}
 bool command::compute(){
 	int status;
 	char *cmd = argu[0];

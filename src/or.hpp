@@ -9,6 +9,7 @@ public:
 	bool compute();
 	void setLeft(base* b);
 	void setRight(base* b);
+	int type();
 private:
 	base* command_left;
 	base* command_right;

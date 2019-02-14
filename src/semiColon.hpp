@@ -7,8 +7,9 @@ class semiColon : public connector {
 public:
 	semiColon();
 	bool compute();
-	void setLeft(base* b);
+	void setLeft(base* b);	
 	void setRight(base* b);
+	int type();
 private:
 	base* command_left;
 	base* command_right;
