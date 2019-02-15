@@ -34,18 +34,18 @@ bool command::compute(){
            } 
 
            if (WIFEXITED(status)) {
-                printf("Child Exited Succesfully| status =%d\n ", WEXITSTATUS(status));
+               // printf("Child Exited Succesfully| status =%d\n ", WEXITSTATUS(status));
 
             } else if (WIFSIGNALED(status)) {
-                printf("Child Terminated By Signal %d\n", WTERMSIG(status));
+                //printf("Child Terminated By Signal %d\n", WTERMSIG(status));
 
             } else if (WIFSTOPPED(status)) {
-                printf("Child Stopped By Signal %d\n", WSTOPSIG(status));
+                //printf("Child Stopped By Signal %d\n", WSTOPSIG(status));
             } //else if (WIFCONTINUED(status)) {
                // printf("continued\n");}
 
         } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-	//	std::cout<<"R: "<<R<<std::endl;
+		std::cout<<"R: "<<R<<std::endl;
         	return R;
 }
 
