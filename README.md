@@ -14,7 +14,7 @@ This program is a command shell that will be able to take in commands from user 
 
 # UML DIAGRAM
 
-![UML_Diagram](/images/uml_100(1).png)
+![UML_Diagram](/images/uml_100_(1).png)
 
 # CLASS DESCRIPTION
 
