@@ -7,7 +7,8 @@
 #include "../src/semiColon.hpp"
 
 TEST(EchoTest, Testing_echo_hello) {
-	command* one = new command("echo hello");
+	std::string t = "echo hello";
+	command* one = new command(t);
 	EXPECT_EQ(1,one->compute());
 }
 TEST(EchoTest, Testing_ls ){
@@ -17,7 +18,7 @@ TEST(EchoTest, Testing_ls ){
 }
 TEST(EchoTest, Invalid_cmd_prr4){
 	command* one = new command();
-	one->set_command("pr44");
+	one->set_command("pr4490");
 	EXPECT_EQ(0, one->compute());
 
 }

@@ -9,6 +9,8 @@
 class command : public base {
 private:
 	char* argu[3];
+	char* one;
+	char* two;
 public:
 	command();
 	command(std::string n);
