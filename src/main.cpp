@@ -43,6 +43,7 @@ void execute(queue<base*> order, bool* flag) {
 		int type = order.front()->type();
 		if(type == 1) { //command
 			decision = order.front()->compute();
+			decision = !decision;
 			order.pop();
 		}
 		if(type == 2 && decision == true) { //or
