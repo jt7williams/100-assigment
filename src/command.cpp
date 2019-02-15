@@ -51,7 +51,7 @@ bool command::compute(){
 	if(children == 0){
 		//note we are in the child
 		if(execvp(argu[0],argu) < 1){
-			printf("Error: command not found");
+			printf("Error: command not found\n");
 			exit(EXIT_FAILURE);
 		}
 	}
