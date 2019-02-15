@@ -6,11 +6,12 @@
 #include "and.hpp"
 #include "semiColon.hpp"
 #include "command.hpp"
+#include "exit.hpp"
 #include <queue>
 
 using namespace std;
 
-void execute(queue<base*> order);
+void execute(queue<base*> order, bool* flag);
 queue<base*> parsing(string input);
 
 int main (int argv, char* argc[]){
@@ -18,14 +19,16 @@ int main (int argv, char* argc[]){
 	string input;
 	cout<<"$ ";
 	getline(cin, input);
-	while(input.compare("quit")) {
+	bool flag = true;
+	while(flag) {
 		//base* b;
 		queue<base*> order;
 		order=parsing(input);
-		execute(order);
-		
-		cout<<"$ ";
-		getline(cin, input);
+		execute(order, &flag);
+		if(flag) {
+			cout<<"$ ";
+			getline(cin, input);
+		}
 	}		
 	//execute(b);
 	//cout<<input<<endl;
@@ -33,7 +36,7 @@ int main (int argv, char* argc[]){
 	return 0;
 }
 
-void execute(queue<base*> order) {
+void execute(queue<base*> order, bool* flag) {
 	bool decision = true;
 	while(!order.empty()) {
 		//decision = order.front()->compute();
@@ -57,6 +60,10 @@ void execute(queue<base*> order) {
 		if(type == 4) { //semiColon
 			order.pop();
 		}
+		if(type == 5) {
+			*flag = false;
+			return;
+		}
 	}
 }
 
@@ -72,11 +79,18 @@ queue<base*> parsing(string input) {
 		size_t s = input.find(";");
 		if(a != string::npos || o != string::npos || s != string::npos) {
 			size_t first = input.find_first_of("&|;");
-			b = new command(input.substr(0,first-1));
+			
+			if(input.substr(0,first-1).compare("exit") == 0) {
+				b = new Exit();
+				order.push(b);
+			} else {
+				b = new command(input.substr(0,first-1));
+				order.push(b);
+			}
 			//currentLeft->set_command(input.substr(0,first));
-			cout<<input.substr(0,first-1)<<endl;
+			//cout<<input.substr(0,first-1)<<endl;
 			input = input.substr(first);
-			order.push(b);
+			//order.push(b);
 			//cout<<input<<endl;
 			//.now get connector
 			base* c;
@@ -97,10 +111,17 @@ queue<base*> parsing(string input) {
                 	//o = input.find("||");
                 	//s = input.find(";");
 		} else {
-			b = new command(input);
+			//b = new command(input);
+			if(input.compare("exit") == 0) {
+                                b = new Exit();
+				order.push(b);
+                        } else {
+				b= new command(input);
+				order.push(b);
+			}
 			//currentRoot->set_command(input);
-			order.push(b);
-			cout<<input<<endl;
+			//order.push(b);
+			//cout<<input<<endl;
 			input.clear();
 		} 
 	}

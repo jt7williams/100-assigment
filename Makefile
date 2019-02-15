@@ -324,6 +324,36 @@ src/connector.cpp.s:
 	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/connector.cpp.s
 .PHONY : src/connector.cpp.s
 
+src/exit.o: src/exit.cpp.o
+
+.PHONY : src/exit.o
+
+# target to build an object file
+src/exit.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/exit.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/exit.cpp.o
+.PHONY : src/exit.cpp.o
+
+src/exit.i: src/exit.cpp.i
+
+.PHONY : src/exit.i
+
+# target to preprocess a source file
+src/exit.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/exit.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/exit.cpp.i
+.PHONY : src/exit.cpp.i
+
+src/exit.s: src/exit.cpp.s
+
+.PHONY : src/exit.s
+
+# target to generate assembly for a file
+src/exit.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/exit.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/exit.cpp.s
+.PHONY : src/exit.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -465,6 +495,9 @@ help:
 	@echo "... src/connector.o"
 	@echo "... src/connector.i"
 	@echo "... src/connector.s"
+	@echo "... src/exit.o"
+	@echo "... src/exit.i"
+	@echo "... src/exit.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -59,7 +59,7 @@ bool command::compute(){
 
 }
 void command::set_command(std::string n){ 
-	
+	std::cout<<n<<":"<<std::endl;	
 	std::string t = n;
         std::string d = " ";	
         std::string t_sub = t.substr(0, t.find(d)); 
