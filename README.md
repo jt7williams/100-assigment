@@ -55,10 +55,6 @@ The main.cpp file above, starts by creating a child process and storing its valu
 
 # ROADMAP & ISSUES
 
-- [ ] [Create the window class](https://github.com/cs100/assignment-cs-100-wes-will/issues/1#issue-406038491) 
-
-- [ ] [Create the textbox that will handle i/o funcionality](https://github.com/cs100/assignment-cs-100-wes-will/issues/13#issue-406050156)
-
 - [ ] [Create the base class](https://github.com/cs100/assignment-cs-100-wes-will/issues/4#issue-406038685)
 
 - [ ] [Create the parsing function](https://github.com/cs100/assignment-cs-100-wes-will/issues/2#issue-406038594)
@@ -77,4 +73,4 @@ The main.cpp file above, starts by creating a child process and storing its valu
 
 - [ ] [Test the and or and semiColon class for correct ordering](https://github.com/cs100/assignment-cs-100-wes-will/issues/11#issue-406038956)
 
-- [ ] [Create the tree that holds base objects](https://github.com/cs100/assignment-cs-100-wes-will/issues/12#issue-406039017)
+- [ ] [Create the queue logic that will execute base objects](https://github.com/cs100/assignment-cs-100-wes-will/issues/12#issue-406039017)
