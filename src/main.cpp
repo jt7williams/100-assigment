@@ -43,6 +43,7 @@ void execute(queue<base*> order, bool* flag) {
 		int type = order.front()->type();
 		if(type == 1) { //command
 			decision = order.front()->compute();
+			decision = !decision;
 			order.pop();
 		}
 		if(type == 2 && decision == true) { //or
@@ -84,7 +85,12 @@ queue<base*> parsing(string input) {
 				b = new Exit();
 				order.push(b);
 			} else {
-				b = new command(input.substr(0,first-1));
+				char tester = input.at(first-1);
+				if(tester == ' ') {
+					b = new command(input.substr(0,first-1));
+				} else {
+					b = new command(input.substr(0,first));
+				}
 				order.push(b);
 			}
 			//currentLeft->set_command(input.substr(0,first));
@@ -104,7 +110,11 @@ queue<base*> parsing(string input) {
 				order.push(c);
 			} else if(input.at(0) == ';') {
 				c = new semiColon();
-				input = input.substr(2);
+				if(input.size() < 2) {
+					input.clear();
+				} else {
+					input = input.substr(2);
+				}
 				order.push(c);
 			}
 			//a = input.find("&&");
