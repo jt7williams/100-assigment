@@ -17,6 +17,6 @@ public:
 	bool compute();
 	void set_command(std::string n);
 	int type();
-
+	std::string cutComments(std::string input);
 };
 #endif

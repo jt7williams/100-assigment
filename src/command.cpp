@@ -12,8 +12,18 @@
 command::command() {
 }
 command::command(std::string n){
-	set_command(n);		
+	set_command(cutComments(n));		
 }
+std::string command::cutComments(std::string input) {
+        size_t c = input.find("#");
+        if(c != std::string::npos) {
+                input = input.substr(0,c-1);
+
+        }
+        //std::cout<<input<<std::endl;
+        return input;
+}
+                
 int command::type() {
 	return 1;
 }
