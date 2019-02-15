@@ -20,7 +20,6 @@ int command::type() {
 bool command::compute(){
 
 	int status;
-	int R = 1;
 	pid_t children, w;
 	
 	children = fork();
@@ -37,29 +36,30 @@ bool command::compute(){
                // printf("Child Exited Succesfully| status =%d\n ", WEXITSTATUS(status));
 
             } else if (WIFSIGNALED(status)) {
-                //printf("Child Terminated By Signal %d\n", WTERMSIG(status));
+               // printf("Child Terminated By Signal %d\n", WTERMSIG(status));
 
             } else if (WIFSTOPPED(status)) {
-                //printf("Child Stopped By Signal %d\n", WSTOPSIG(status));
-            } //else if (WIFCONTINUED(status)) {
-               // printf("continued\n");}
+               // printf("Child Stopped By Signal %d\n", WSTOPSIG(status));
+            } else if (WIFCONTINUED(status)) {
+               // printf("continued\n");
+               }
 
         } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		std::cout<<"R: "<<R<<std::endl;
-        	return R;
+		return WEXITSTATUS(status);
 }
 
 	if(children == 0){
 		//note we are in the child
-		R += execvp(argu[0],argu);
-	//	std::cout<<"R: "<<R<<std::endl;
+		if(execvp(argu[0],argu) < 1){
+			printf("Error: command not found");
+			exit(EXIT_FAILURE);
+		}
 	}
 	
 	if(children < 0){
 		perror("fork() error");
 		exit(-1);
 	}
-	return R;
 
 }
 void command::set_command(std::string n){ 	
