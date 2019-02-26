@@ -102,18 +102,33 @@ queue<base*> parsing(string input) {
 			base* c;
 			if(input.at(0) == '&') {
 				c = new And();
-				input = input.substr(3);
+				if(input.at(2) == ' ') {
+					input = input.substr(3);
+				}
+				else { 
+					input = input.substr(2);
+				}
 				order.push(c);
 			} else if(input.at(0) == '|') {
 				c = new Or();
-				input = input.substr(3);
+				if(input.at(2) == ' ') {
+					input = input.substr(3);
+				}
+				else {
+					input = input.substr(2);
+				}
 				order.push(c);
 			} else if(input.at(0) == ';') {
 				c = new semiColon();
 				if(input.size() < 2) {
 					input.clear();
 				} else {
-					input = input.substr(2);
+					if(input.at(1) == ' ') {
+						input = input.substr(2);
+					}
+					else {
+						input = input.substr(1);
+					}
 				}
 				order.push(c);
 			}
