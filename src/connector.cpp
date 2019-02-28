@@ -6,6 +6,6 @@ connector::connector() {
 		
 }
 
-bool connector::compute() {
+bool connector::compute(bool* f) {
 	return true;
 }

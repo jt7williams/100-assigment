@@ -14,7 +14,7 @@ private:
 public:
 	command();
 	command(std::string n);
-	bool compute();
+	bool compute(bool* flag);
 	void set_command(std::string n);
 	int type();
 	std::string cutComments(std::string input);

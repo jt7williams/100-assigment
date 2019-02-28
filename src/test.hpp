@@ -15,7 +15,7 @@ private:
 public:
         test();
         test(string n);
-        bool compute();
+        bool compute(bool* flag);
         void set_command(string n);
         int type();
 };

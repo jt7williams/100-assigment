@@ -6,7 +6,7 @@
 class Or: public connector {
 public:
 	Or();
-	bool compute();
+	bool compute(bool* flag);
 	void setLeft(base* b);
 	void setRight(base* b);
 	int type();

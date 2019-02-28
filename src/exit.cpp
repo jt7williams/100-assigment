@@ -4,7 +4,8 @@ Exit::Exit() {
 
 }
 
-bool Exit::compute() {
+bool Exit::compute(bool* flag) {
+	*flag = false;
 	return true;
 }
 

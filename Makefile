@@ -411,6 +411,36 @@ src/or.cpp.s:
 	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/or.cpp.s
 .PHONY : src/or.cpp.s
 
+src/paren.o: src/paren.cpp.o
+
+.PHONY : src/paren.o
+
+# target to build an object file
+src/paren.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/paren.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/paren.cpp.o
+.PHONY : src/paren.cpp.o
+
+src/paren.i: src/paren.cpp.i
+
+.PHONY : src/paren.i
+
+# target to preprocess a source file
+src/paren.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/paren.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/paren.cpp.i
+.PHONY : src/paren.cpp.i
+
+src/paren.s: src/paren.cpp.s
+
+.PHONY : src/paren.s
+
+# target to generate assembly for a file
+src/paren.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/paren.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/paren.cpp.s
+.PHONY : src/paren.cpp.s
+
 src/semiColon.o: src/semiColon.cpp.o
 
 .PHONY : src/semiColon.o
@@ -504,6 +534,9 @@ help:
 	@echo "... src/or.o"
 	@echo "... src/or.i"
 	@echo "... src/or.s"
+	@echo "... src/paren.o"
+	@echo "... src/paren.i"
+	@echo "... src/paren.s"
 	@echo "... src/semiColon.o"
 	@echo "... src/semiColon.i"
 	@echo "... src/semiColon.s"

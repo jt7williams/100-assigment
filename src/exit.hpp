@@ -7,7 +7,7 @@ using namespace std;
 class Exit : public base {
 public:
 	Exit();
-	bool compute();
+	bool compute(bool* flag);
 	int type();
 };
 #endif

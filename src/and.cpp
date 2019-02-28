@@ -4,8 +4,21 @@ And::And() {
 
 }
 
-bool And::compute() {
-	return true;
+bool And::compute(bool* f) {
+	if(f) {
+		bool flag = true;
+		flag = command_left->compute(f);
+		//std::cout<<"1"<<std::endl;
+		if(flag) {
+			//std::cout<<"2"<<std::endl;
+			flag = command_right->compute(f);
+		} else {
+			return flag;
+		}
+		return flag;
+	} else {
+		return true;
+	}
 }
 
 int And::type() {

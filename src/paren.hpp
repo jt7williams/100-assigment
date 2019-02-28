@@ -6,11 +6,13 @@
 class Paren: public connector {
 public:
         Paren();
-        bool compute();
+	Paren(int id);
+        bool compute(bool* flag);
         void setLeft(base* b);
         void setRight(base* b);
         int type();
 private:
+	int id;
         base* command_left;
         base* command_right;
 };

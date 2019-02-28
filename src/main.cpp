@@ -7,12 +7,13 @@
 #include "semiColon.hpp"
 #include "command.hpp"
 #include "exit.hpp"
+#include "paren.hpp"
 #include <queue>
 
 using namespace std;
 
 void execute(queue<base*> order, bool* flag);
-queue<base*> parsing(string input);
+base* parsing(string input, int* count, base* ret);
 
 int main (int argv, char* argc[]){
 	//queue<base*> order;
@@ -21,18 +22,30 @@ int main (int argv, char* argc[]){
 	getline(cin, input);
 	bool flag = true;
 	while(flag) {
-		//base* b;
+		base* b = new semiColon();
+		base* s;
+		int count = 0;
 		queue<base*> order;
-		order=parsing(input);
-		//cout<<"made it out"<<endl;
-		execute(order, &flag);
+		do {
+			count = 0;
+			s = parsing(input, &count, b);
+			//cout<<"here"<<endl;
+			/*if(count%2 != 0) {
+				cout<<"error: uneven parentheses"<<endl;
+				while(!order.empty())
+					order.pop();
+			}*/
+		} while(count%2 !=0);	
+		//execute(order, &flag);
+		//cout<<"before compute"<<endl;
+		//b = new command("echo hello");
+		s->compute(&flag);
+		//cout<<"after compute"<<endl;
 		if(flag) {
 			cout<<"$ ";
 			getline(cin, input);
 		}
-	}		
-	//execute(b);
-	//cout<<input<<endl;
+	}
 	
 	return 0;
 }
@@ -47,14 +60,14 @@ void execute(queue<base*> order, bool* flag) {
 		//cout<<"after type"<<endl;
 		if(type == 1) { //command
 			//cout<<"inside copmpute"<<endl;
-			decision = order.front()->compute();
+			decision = order.front()->compute(&decision);
 			decision = !decision;
 			order.pop();
 		}
 		if(type == 2 && decision == true) { //or
 			order.pop();
-			order.pop();
 		} else if (type ==2 && decision == false) {
+			order.pop();
 			order.pop();
 		}
 		if(type == 3 && decision == true) { //and
@@ -73,16 +86,18 @@ void execute(queue<base*> order, bool* flag) {
 	}
 }
 
-queue<base*> parsing(string input) {
+base* parsing(string input, int* count, base* currentRoot) {
 	queue<base*> order;
 	base* currentLeft;
-	base* currentRoot=nullptr;
+	currentRoot=nullptr;
 	base* currentRight;
 	base* b;
+	int round = 0;
 	while(!input.empty()) {
+		//cout<<"loop"<<endl;
 		size_t comment = input.find("#");
 		size_t first_quote = input.find("\"");
-		if(comment < first_quote || first_quote == string::npos) {
+		if(comment < first_quote || first_quote == string::npos) { //errase comments
 			if(comment != string::npos) {
 				input = input.substr(0,comment);
 				//cout<<input<<endl;
@@ -96,6 +111,12 @@ queue<base*> parsing(string input) {
 			
 			if(input.substr(0,first-1).compare("exit") == 0) {
 				b = new Exit();
+				if(round == 0) {
+					currentRoot=b;
+					round++;
+				} else {
+					currentRoot->setRight(b);
+				}
 				order.push(b);
 			} else {
 				char tester = input.at(first-1);
@@ -128,6 +149,14 @@ queue<base*> parsing(string input) {
 						} else {
 							b = new command(possible);
 						}
+						if(round==0) {
+							currentRoot=b;
+							round++;
+							//cout<<"actually here"<<endl;
+						} else {
+							currentRoot->setRight(b);
+							//cout<<"here"<<endl;
+						}
 						order.push(b);
 					}
 					
@@ -139,12 +168,21 @@ queue<base*> parsing(string input) {
 					} else {
 						b = new command(input.substr(0,first));
 					}
+					if(round==0) {
+						currentRoot=b;
+						round++;
+						//cout<<"actually here: "<<input.substr(0,first)<<endl;
+					} else {
+						currentRoot->setRight(b);
+						//cout<<"here"<<endl;
+					}
 					order.push(b);
 				}
 				//order.push(b);
 				if(input.empty()) {
+					//ret = currentRoot;
 					//cout<<"returning"<<endl;
-					return order;
+					return currentRoot;
 				}
 			}
 			//currentLeft->set_command(input.substr(0,first));
@@ -162,6 +200,9 @@ queue<base*> parsing(string input) {
 				else { 
 					input = input.substr(2);
 				}
+				//cout<<"inside and"<<endl;
+				c->setLeft(currentRoot);//creating tree
+				currentRoot=c;
 				order.push(c);
 			} else if(input.at(0) == '|') {
 				c = new Or();
@@ -171,6 +212,8 @@ queue<base*> parsing(string input) {
 				else {
 					input = input.substr(2);
 				}
+				c->setLeft(currentRoot);//creating tree
+				currentRoot=c;
 				order.push(c);
 			} else if(input.at(0) == ';') {
 				c = new semiColon();
@@ -184,6 +227,8 @@ queue<base*> parsing(string input) {
 						input = input.substr(1);
 					}
 				}
+				c->setLeft(currentRoot);//creating tree
+				currentRoot=c;
 				order.push(c);
 			}
 			//a = input.find("&&");
@@ -193,9 +238,19 @@ queue<base*> parsing(string input) {
 			//b = new command(input);
 			if(input.compare("exit") == 0) {
                                 b = new Exit();
+				if(round == 0) {
+					currentRoot=b;
+				} else {
+					currentRoot->setRight(b);
+				}
 				order.push(b);
                         } else {
 				b= new command(input);
+				if(round == 0) {
+					currentRoot=b;
+				} else {
+					currentRoot->setRight(b);
+				}
 				order.push(b);
 			}
 			//currentRoot->set_command(input);
@@ -204,5 +259,7 @@ queue<base*> parsing(string input) {
 			input.clear();
 		} 
 	}
-	return order;
+	//currentRoot->compute();
+	//ret = currentRoot;
+	return currentRoot;
 }

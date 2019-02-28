@@ -2,11 +2,13 @@
 #define __and_hpp__
 #include "connector.hpp"
 #include "base.hpp"
+#include <string>
+#include <iostream>
 
 class And: public connector {
 public:
 	And();
-	bool compute();
+	bool compute(bool* flag);
 	void setRight(base* b);
 	void setLeft(base* b);
 	int type();

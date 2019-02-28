@@ -5,21 +5,22 @@
 #include "../src/or.hpp"
 #include "../src/and.hpp"
 #include "../src/semiColon.hpp"
+bool f = true;
 
 TEST(EchoTest, Testing_echo_hello) {
 	std::string t = "echo hello";
 	command* one = new command(t);
-	EXPECT_EQ(0,one->compute());
+	EXPECT_EQ(0,one->compute(&f));
 }
 TEST(EchoTest, Testing_ls ){
 	
 	command* one = new command("ls");
-	EXPECT_EQ(0,one->compute());
+	EXPECT_EQ(0,one->compute(&f));
 }
 TEST(EchoTest, Invalid_cmd_prr4){
 	command* one = new command();
 	one->set_command("pr4490");
-	EXPECT_EQ(1, one->compute());
+	EXPECT_EQ(1, one->compute(&f));
 
 }
 TEST(EchoTest, command_type) {

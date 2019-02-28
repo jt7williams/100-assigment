@@ -4,8 +4,19 @@ Or::Or() {
 
 }
 
-bool Or::compute() {
-	return true;
+bool Or::compute(bool* f) {
+	if(f) {
+		bool flag = true;
+		flag = command_left->compute(f);
+		if(!flag) {
+			flag = command_right->compute(f);
+		} else {
+			return flag;
+		}
+		return flag;
+	} else {
+		return true;
+	}
 }
 
 int Or::type() {

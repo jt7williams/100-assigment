@@ -4,12 +4,19 @@ Paren::Paren() {
 
 }
 
-bool Paren::compute() {
+Paren::Paren(int type) {
+	id=type;
+}
+
+bool Paren::compute(bool* f) {
         return true;
 }
 
 int Paren::type() {
-        return 6;
+	if(id == 0)
+        	return 6;
+	else 
+		return 7;
 }
 
 void Paren::setRight(base* b) {

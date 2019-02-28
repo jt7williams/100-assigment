@@ -6,7 +6,7 @@
 class semiColon : public connector {
 public:
 	semiColon();
-	bool compute();
+	bool compute(bool* flag);
 	void setLeft(base* b);	
 	void setRight(base* b);
 	int type();

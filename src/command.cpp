@@ -28,8 +28,8 @@ int command::type() {
 	//std::cout<<"inside type"<<std::endl;
 	return 1;
 }
-bool command::compute(){
-
+bool command::compute(bool* f){
+	//std::cout<<"inside compute"<<std::endl;
 	int status;
 	pid_t children, w;
 	
@@ -56,7 +56,7 @@ bool command::compute(){
                }
 
         } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-		return WEXITSTATUS(status);
+		return !WEXITSTATUS(status);
 }
 
 	if(children == 0){
@@ -71,7 +71,7 @@ bool command::compute(){
 		perror("fork() error");
 		exit(-1);
 	}
-
+	//return true;
 }
 void command::set_command(std::string n){ 	
         std::string d = " ";
