@@ -12,7 +12,7 @@
 command::command() {
 }
 command::command(std::string n){
-	set_command(cutComments(n));		
+	set_command(n);		
 }
 std::string command::cutComments(std::string input) {
         size_t c = input.find("#");
@@ -25,6 +25,7 @@ std::string command::cutComments(std::string input) {
 }
                 
 int command::type() {
+	//std::cout<<"inside type"<<std::endl;
 	return 1;
 }
 bool command::compute(){

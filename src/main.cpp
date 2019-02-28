@@ -24,6 +24,7 @@ int main (int argv, char* argc[]){
 		//base* b;
 		queue<base*> order;
 		order=parsing(input);
+		//cout<<"made it out"<<endl;
 		execute(order, &flag);
 		if(flag) {
 			cout<<"$ ";
@@ -38,10 +39,14 @@ int main (int argv, char* argc[]){
 
 void execute(queue<base*> order, bool* flag) {
 	bool decision = true;
+	//cout<<"just inside compute: "<<order.size()<<endl;
 	while(!order.empty()) {
+		//cout<<"just inside compute: "<<order.size()<<endl;
 		//decision = order.front()->compute();
 		int type = order.front()->type();
+		//cout<<"after type"<<endl;
 		if(type == 1) { //command
+			//cout<<"inside copmpute"<<endl;
 			decision = order.front()->compute();
 			decision = !decision;
 			order.pop();
@@ -75,6 +80,14 @@ queue<base*> parsing(string input) {
 	base* currentRight;
 	base* b;
 	while(!input.empty()) {
+		size_t comment = input.find("#");
+		size_t first_quote = input.find("\"");
+		if(comment < first_quote || first_quote == string::npos) {
+			if(comment != string::npos) {
+				input = input.substr(0,comment);
+				//cout<<input<<endl;
+			}
+		}
 		size_t a = input.find("&&");
 		size_t o = input.find("||");
 		size_t s = input.find(";");
@@ -86,12 +99,53 @@ queue<base*> parsing(string input) {
 				order.push(b);
 			} else {
 				char tester = input.at(first-1);
-				if(tester == ' ') {
-					b = new command(input.substr(0,first-1));
-				} else {
-					b = new command(input.substr(0,first));
+				size_t quote = input.find("\"");
+				string possible = "";
+				if(quote != string::npos) { //looking for quotation marks
+					if(quote < first) {
+						
+						possible = input.substr(0,quote+1);
+						input = input.substr(quote+1);
+						quote = input.find("\"");
+						if(quote != string::npos) {
+							possible = possible+input.substr(0,quote+1);
+							input = input.substr(quote+1);
+						}
+						//cout<<"possible: "<<possible<<endl;
+						first = input.find_first_of("&|;");
+						if(!input.empty()) {
+							if(first != 0) {
+								tester = input.at(first-1);
+								if(tester == ' ') {
+                                        				b = new command(possible);
+                                				} else {
+                                        				b = new command(possible);
+									
+                                				}
+							} else {
+								b = new command(possible);
+							}
+						} else {
+							b = new command(possible);
+						}
+						order.push(b);
+					}
+					
+					//cout<<"here: "<<input<<endl;
 				}
-				order.push(b);
+				else {
+					if(tester == ' ') {
+						b = new command(input.substr(0,first-1));
+					} else {
+						b = new command(input.substr(0,first));
+					}
+					order.push(b);
+				}
+				//order.push(b);
+				if(input.empty()) {
+					//cout<<"returning"<<endl;
+					return order;
+				}
 			}
 			//currentLeft->set_command(input.substr(0,first));
 			//cout<<input.substr(0,first-1)<<endl;
