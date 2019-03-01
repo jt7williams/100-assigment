@@ -9,11 +9,11 @@ test::test(string n) {
 }
 bool test::compute(bool* flag){
 
-
+	return true;
 }
-bool test::set_command(string n){
+void test::set_command(string n){
 
-	std::cout<<n<<std::end;
+	//std::cout<<n<<std::end;
 }
 
 int test::type() {

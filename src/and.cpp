@@ -10,8 +10,9 @@ bool And::compute(bool* f) {
 		flag = command_left->compute(f);
 		//std::cout<<*f<<std::endl;
 		if(flag && *f) {
-			//std::cout<<"2"<<std::endl;
+			//std::cout<<"before second"<<std::endl;
 			flag = command_right->compute(f);
+			//std::cout<<"after second"<<std::endl;
 		} else {
 			//std::cout<<1<<std::endl;
 			return flag;
