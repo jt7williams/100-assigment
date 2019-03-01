@@ -13,7 +13,7 @@
 using namespace std;
 
 void execute(queue<base*> order, bool* flag);
-base* parsing(string input);
+base* parsing(string & input);
 
 int main (int argv, char* argc[]){
 	//queue<base*> order;
@@ -86,13 +86,18 @@ void execute(queue<base*> order, bool* flag) {
 	}
 }
 
-base* parsing(string input) {
+base* parsing(string & input) {
 	queue<base*> order;
 	base* currentHead=nullptr;
 	base* currentRoot=nullptr;
 	base* b;
 	int round = 0;
 	while(!input.empty()) {
+		/*if(input.at(0) == '(') {
+			Paren* p = new Paren();	
+			p->setWrap(parsing(input.substr(1)));
+			currentRoot=p;	
+		}*/
 		size_t comment = input.find("#");
 		size_t first_quote = input.find("\"");
 		if(comment < first_quote || first_quote == string::npos) { //errase comments
@@ -104,11 +109,16 @@ base* parsing(string input) {
 		size_t o = input.find("||");
 		size_t s = input.find(";");
 		if(a != string::npos || o != string::npos || s != string::npos) {
-			size_t first = input.find_first_of("&|;");
-			
+			size_t first = input.find_first_of("&|;)");
+		if(input.at(0) == '(') {
+                        Paren* p = new Paren(); 
+                        input = input.substr(1);
+			p->setWrap(parsing(input));
+                        currentRoot=p;  
+                } else {
 			if(input.substr(0,first-1).compare("exit") == 0) {
 				b = new Exit();
-				if(round == 0) {
+				if(currentRoot == nullptr) {
 					currentRoot=b;
 					round++;
 				} else {
@@ -129,7 +139,7 @@ base* parsing(string input) {
 							possible = possible+input.substr(0,quote+1);
 							input = input.substr(quote+1);
 						}
-						first = input.find_first_of("&|;");
+						first = input.find_first_of("&|;)");
 						if(!input.empty()) {
 							if(first != 0) {
 								tester = input.at(first-1);
@@ -145,7 +155,7 @@ base* parsing(string input) {
 						} else {
 							b = new command(possible);
 						}
-						if(round==0) {
+						if(currentRoot == nullptr) {
 							currentRoot=b;
 							round++;
 						} else {
@@ -160,7 +170,7 @@ base* parsing(string input) {
 					} else {
 						b = new command(input.substr(0,first));
 					}
-					if(round==0) {
+					if(currentRoot == nullptr) {
 						currentRoot=b;
 						round++;
 					} else {
@@ -172,6 +182,13 @@ base* parsing(string input) {
 					return currentRoot;
 				}
 			}//
+		}//end of parentheses else
+		if(input.at(first) == ')') {
+			return currentRoot;
+		} else if(input.at(first) == ')') {
+			return currentRoot;
+		}
+			
 			input = input.substr(first);
 			//.now get connector
 			base* c;
@@ -216,7 +233,7 @@ base* parsing(string input) {
 		} else {
 			if(input.compare("exit") == 0) {
                                 b = new Exit();
-				if(round == 0) {
+				if(currentRoot == nullptr) {
 					currentRoot=b;
 				} else {
 					currentRoot->setRight(b);
@@ -224,7 +241,7 @@ base* parsing(string input) {
 				order.push(b);
                         } else {
 				b= new command(input);
-				if(round == 0) {
+				if(currentRoot == nullptr) {
 					currentRoot=b;
 				} else {
 					currentRoot->setRight(b);
