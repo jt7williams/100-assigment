@@ -108,13 +108,21 @@ base* parsing(string & input) {
 		size_t a = input.find("&&");
 		size_t o = input.find("||");
 		size_t s = input.find(";");
-		if(a != string::npos || o != string::npos || s != string::npos) {
+		size_t ep = input.find(")");
+		if(a != string::npos || o != string::npos || s != string::npos || ep != string::npos) {
 			size_t first = input.find_first_of("&|;)");
 		if(input.at(0) == '(') {
                         Paren* p = new Paren(); 
                         input = input.substr(1);
+			cout<<"inside paren main: "<<input<<endl;
 			p->setWrap(parsing(input));
-                        currentRoot=p;  
+			input = input.substr(1);
+			cout<<"after paren main: "<<input<<endl;
+			if(currentRoot == nullptr) {
+				currentRoot=p;  
+			} else {
+				currentRoot->setRight(p);
+			}
                 } else {
 			if(input.substr(0,first-1).compare("exit") == 0) {
 				b = new Exit();
@@ -166,8 +174,10 @@ base* parsing(string & input) {
 				}
 				else {
 					if(tester == ' ') {
+						cout<<"here: "<<input.substr(0,first-1)<<endl;
 						b = new command(input.substr(0,first-1));
 					} else {
+						cout<<"no here: "<<input.substr(0,first)<<endl;
 						b = new command(input.substr(0,first));
 					}
 					if(currentRoot == nullptr) {
@@ -181,15 +191,22 @@ base* parsing(string & input) {
 				if(input.empty()) {
 					return currentRoot;
 				}
+				input = input.substr(first);
 			}//
 		}//end of parentheses else
-		if(input.at(first) == ')') {
-			return currentRoot;
-		} else if(input.at(first) == ')') {
+		//input = input.substr(first);
+		if(input.empty()) {
 			return currentRoot;
 		}
+		if(input.at(0) == ')') {
+			cout<<"returning paren 1"<<input<<endl;
+			return currentRoot;
+		} else {
+			cout<<"returning paren 2"<<endl;
+			//return currentRoot;
+		}
 			
-			input = input.substr(first);
+			//input = input.substr(first);
 			//.now get connector
 			base* c;
 			if(input.at(0) == '&') {
@@ -200,17 +217,21 @@ base* parsing(string & input) {
 				else { 
 					input = input.substr(2);
 				}
+				cout<<"after and: "<<input<<endl;
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
 			} else if(input.at(0) == '|') {
 				c = new Or();
 				if(input.at(2) == ' ') {
+					cout<<"first"<<endl;
 					input = input.substr(3);
 				}
-				else {
+				else { 
+					cout<<"second: "<<input<<endl;
 					input = input.substr(2);
 				}
+				cout<<"after or: "<<input<<endl;
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
@@ -225,12 +246,14 @@ base* parsing(string & input) {
 					else {
 						input = input.substr(1);
 					}
+					
 				}
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
 			}
 		} else {
+			size_t first = input.find_first_of(")");
 			if(input.compare("exit") == 0) {
                                 b = new Exit();
 				if(currentRoot == nullptr) {
