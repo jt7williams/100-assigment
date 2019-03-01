@@ -13,7 +13,7 @@
 using namespace std;
 
 void execute(queue<base*> order, bool* flag);
-base* parsing(string input, int* count, base* ret);
+base* parsing(string input);
 
 int main (int argv, char* argc[]){
 	//queue<base*> order;
@@ -28,7 +28,7 @@ int main (int argv, char* argc[]){
 		queue<base*> order;
 		do {
 			count = 0;
-			s = parsing(input, &count, b);
+			s = parsing(input);
 			//cout<<"here"<<endl;
 			/*if(count%2 != 0) {
 				cout<<"error: uneven parentheses"<<endl;
@@ -86,21 +86,18 @@ void execute(queue<base*> order, bool* flag) {
 	}
 }
 
-base* parsing(string input, int* count, base* currentRoot) {
+base* parsing(string input) {
 	queue<base*> order;
-	base* currentLeft;
-	currentRoot=nullptr;
-	base* currentRight;
+	base* currentHead=nullptr;
+	base* currentRoot=nullptr;
 	base* b;
 	int round = 0;
 	while(!input.empty()) {
-		//cout<<"loop"<<endl;
 		size_t comment = input.find("#");
 		size_t first_quote = input.find("\"");
 		if(comment < first_quote || first_quote == string::npos) { //errase comments
 			if(comment != string::npos) {
 				input = input.substr(0,comment);
-				//cout<<input<<endl;
 			}
 		}
 		size_t a = input.find("&&");
@@ -132,7 +129,6 @@ base* parsing(string input, int* count, base* currentRoot) {
 							possible = possible+input.substr(0,quote+1);
 							input = input.substr(quote+1);
 						}
-						//cout<<"possible: "<<possible<<endl;
 						first = input.find_first_of("&|;");
 						if(!input.empty()) {
 							if(first != 0) {
@@ -152,15 +148,11 @@ base* parsing(string input, int* count, base* currentRoot) {
 						if(round==0) {
 							currentRoot=b;
 							round++;
-							//cout<<"actually here"<<endl;
 						} else {
 							currentRoot->setRight(b);
-							//cout<<"here"<<endl;
 						}
 						order.push(b);
 					}
-					
-					//cout<<"here: "<<input<<endl;
 				}
 				else {
 					if(tester == ' ') {
@@ -171,25 +163,16 @@ base* parsing(string input, int* count, base* currentRoot) {
 					if(round==0) {
 						currentRoot=b;
 						round++;
-						//cout<<"actually here: "<<input.substr(0,first)<<endl;
 					} else {
 						currentRoot->setRight(b);
-						//cout<<"here"<<endl;
 					}
 					order.push(b);
 				}
-				//order.push(b);
 				if(input.empty()) {
-					//ret = currentRoot;
-					//cout<<"returning"<<endl;
 					return currentRoot;
 				}
-			}
-			//currentLeft->set_command(input.substr(0,first));
-			//cout<<input.substr(0,first-1)<<endl;
+			}//
 			input = input.substr(first);
-			//order.push(b);
-			//cout<<input<<endl;
 			//.now get connector
 			base* c;
 			if(input.at(0) == '&') {
@@ -200,7 +183,6 @@ base* parsing(string input, int* count, base* currentRoot) {
 				else { 
 					input = input.substr(2);
 				}
-				//cout<<"inside and"<<endl;
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
@@ -231,11 +213,7 @@ base* parsing(string input, int* count, base* currentRoot) {
 				currentRoot=c;
 				order.push(c);
 			}
-			//a = input.find("&&");
-                	//o = input.find("||");
-                	//s = input.find(";");
 		} else {
-			//b = new command(input);
 			if(input.compare("exit") == 0) {
                                 b = new Exit();
 				if(round == 0) {
@@ -253,13 +231,8 @@ base* parsing(string input, int* count, base* currentRoot) {
 				}
 				order.push(b);
 			}
-			//currentRoot->set_command(input);
-			//order.push(b);
-			//cout<<input<<endl;
 			input.clear();
 		} 
 	}
-	//currentRoot->compute();
-	//ret = currentRoot;
 	return currentRoot;
 }

@@ -9,7 +9,15 @@ Paren::Paren(int type) {
 }
 
 bool Paren::compute(bool* f) {
-        return true;
+        if(f) {
+		return wrap->compute(f);
+	} else {
+		return true;
+	}
+}
+
+void Paren::setWrap(base* b) {
+	wrap = b;
 }
 
 int Paren::type() {
