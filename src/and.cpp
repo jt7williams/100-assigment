@@ -5,14 +5,15 @@ And::And() {
 }
 
 bool And::compute(bool* f) {
-	if(f) {
+	if(*f) {
 		bool flag = true;
 		flag = command_left->compute(f);
-		//std::cout<<"1"<<std::endl;
-		if(flag) {
+		//std::cout<<*f<<std::endl;
+		if(flag && *f) {
 			//std::cout<<"2"<<std::endl;
 			flag = command_right->compute(f);
 		} else {
+			//std::cout<<1<<std::endl;
 			return flag;
 		}
 		return flag;

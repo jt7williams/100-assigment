@@ -5,7 +5,7 @@ Or::Or() {
 }
 
 bool Or::compute(bool* f) {
-	if(f) {
+	if(*f) {
 		bool flag = true;
 		flag = command_left->compute(f);
 		if(!flag) {

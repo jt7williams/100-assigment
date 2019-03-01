@@ -6,7 +6,7 @@ semiColon::semiColon() {
 }
 
 bool semiColon::compute(bool* f) {
-	if(f) {
+	if(*f) {
 		command_left->compute(f);
 		command_right->compute(f);
 		return true;

@@ -124,7 +124,8 @@ base* parsing(string & input) {
 				currentRoot->setRight(p);
 			}
                 } else {
-			if(input.substr(0,first-1).compare("exit") == 0) {
+			if(input.substr(0,first-1).compare("exit") == 0 || input.substr(0,first).compare("exit") == 0) {
+				//cout<<"inside exit"<<endl;
 				b = new Exit();
 				if(currentRoot == nullptr) {
 					currentRoot=b;
@@ -132,6 +133,7 @@ base* parsing(string & input) {
 				} else {
 					currentRoot->setRight(b);
 				}
+				input = input.substr(first);
 				order.push(b);
 			} else {
 				char tester = input.at(first-1);
