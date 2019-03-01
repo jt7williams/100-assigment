@@ -114,10 +114,10 @@ base* parsing(string & input) {
 		if(input.at(0) == '(') {
                         Paren* p = new Paren(); 
                         input = input.substr(1);
-			cout<<"inside paren main: "<<input<<endl;
+			//cout<<"inside paren main: "<<input<<endl;
 			p->setWrap(parsing(input));
 			input = input.substr(1);
-			cout<<"after paren main: "<<input<<endl;
+			//cout<<"after paren main: "<<input<<endl;
 			if(currentRoot == nullptr) {
 				currentRoot=p;  
 			} else {
@@ -174,10 +174,10 @@ base* parsing(string & input) {
 				}
 				else {
 					if(tester == ' ') {
-						cout<<"here: "<<input.substr(0,first-1)<<endl;
+						//cout<<"here: "<<input.substr(0,first-1)<<endl;
 						b = new command(input.substr(0,first-1));
 					} else {
-						cout<<"no here: "<<input.substr(0,first)<<endl;
+						//cout<<"no here: "<<input.substr(0,first)<<endl;
 						b = new command(input.substr(0,first));
 					}
 					if(currentRoot == nullptr) {
@@ -199,10 +199,10 @@ base* parsing(string & input) {
 			return currentRoot;
 		}
 		if(input.at(0) == ')') {
-			cout<<"returning paren 1"<<input<<endl;
+			//cout<<"returning paren 1"<<input<<endl;
 			return currentRoot;
 		} else {
-			cout<<"returning paren 2"<<endl;
+			//cout<<"returning paren 2"<<endl;
 			//return currentRoot;
 		}
 			
@@ -217,21 +217,21 @@ base* parsing(string & input) {
 				else { 
 					input = input.substr(2);
 				}
-				cout<<"after and: "<<input<<endl;
+				//cout<<"after and: "<<input<<endl;
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
 			} else if(input.at(0) == '|') {
 				c = new Or();
 				if(input.at(2) == ' ') {
-					cout<<"first"<<endl;
+					//cout<<"first"<<endl;
 					input = input.substr(3);
 				}
 				else { 
-					cout<<"second: "<<input<<endl;
+					//cout<<"second: "<<input<<endl;
 					input = input.substr(2);
 				}
-				cout<<"after or: "<<input<<endl;
+				//cout<<"after or: "<<input<<endl;
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);

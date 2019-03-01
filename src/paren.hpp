@@ -1,7 +1,8 @@
 #ifndef __paren_hpp__
 #define __paren_hpp__
 #include "base.hpp"
-#include "base.hpp"
+#include <string>
+#include <iostream>
 
 class Paren: public base {
 public:
