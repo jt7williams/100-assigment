@@ -1,13 +1,5 @@
 #include "command.hpp"
-#include <sys/types.h>
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
+
 
 command::command() {
 }
@@ -73,23 +65,3 @@ bool command::compute(bool* f){
 	}
 	//return true;
 }
-void command::set_command(std::string n){ 	
-        
-	
-	std::string d = " ";
-        std::string t_sub = n.substr(0, n.find(d));
-	argu[0] = new char [t_sub.length()+1];
-	std::strcpy(argu[0],t_sub.c_str());
-	n.erase(0,t_sub.size()+1);
-	if(n.size() > 0){
-		argu[1] = new char[n.length()+1];
-		std::strcpy(argu[1],n.c_str());}
-	else
-		argu[1] = NULL;
-
-	argu[2] = NULL;
-	//printf("%s:\n", argu[0]);
-	//printf("%s:\n",argu[1]);
-	//printf("%s:\n",argu[2]);
-}
-

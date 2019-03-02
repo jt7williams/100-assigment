@@ -3,10 +3,10 @@
 #include "base.hpp"
 #include <string>
 #include <iostream>
-#include "command.hpp"
+#include <stdio.h>
 #include <sys/stat.h>
-class test: public command {
-private:
+
+class test: public base {
 public:
         test();
         test(std::string n);

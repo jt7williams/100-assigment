@@ -4,18 +4,15 @@
 #include <string>
 #include <iostream>
 #include <sys/types.h>
-
+#include <stdio.h> 
+#include <sys/wait.h>
+#include <unistd.h> 
 
 class command : public base {
-protected:
-	char* argu[3];
-	char* one;
-	char* two;
 public:
 	command();
 	command(std::string n);
 	bool compute(bool* flag);
-	void set_command(std::string n);
 	int type();
 	std::string cutComments(std::string input);
 };

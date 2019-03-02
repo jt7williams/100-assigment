@@ -5,7 +5,7 @@
 #include "../src/or.hpp"
 #include "../src/and.hpp"
 #include "../src/semiColon.hpp"
-#include "../src/test.cpp"
+#include "../src/test.hpp"
 bool f = true;
 
 
@@ -15,7 +15,7 @@ TEST(EchoTest, Testing_test_option_e){
 	
 	//TESTING WITH  EXISTING DIRECTORY
 	std::string t = "-e src/";
-	command* one = new test(t);
+	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 	
 	//TESTING WITH  EXISTING FILE
@@ -34,7 +34,7 @@ TEST(EchoTest, Testing_test_no_option_default_e){
 
 	//TESTING FOR EXISTING DIRECTORY
 	std::string t = "src/";
-	command* one = new test(t);
+	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 	
 	//TESTING FOR EXISTING FILE
@@ -52,7 +52,7 @@ TEST(EchotEST, Testing_test_option_f){
 	
 	//TESTING WITH EXISTING DIRECTORY
 	std::string t = "-f src/";
-	command* one = new test(t);
+	test* one = new test(t);
 	EXPECT_EQ(0, one->compute(&f));
 
 	//TESTING WITH EXISTING FILE
@@ -69,7 +69,7 @@ TEST(EchoTest, Tesing_test_option_d){
 	
 	//TESTING WITH EXISTING DIRECTORY
 	std::string t = "-d src/";
-	command* one = new test(t);
+	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 
 	//TESTING WITH EXISTING FILE
