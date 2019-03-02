@@ -13,6 +13,7 @@ ADD_EXECUTABLE(rshell
 	src/semiColon.cpp
 	src/exit.cpp
 	src/paren.cpp
+	src/test.cpp
 )
 
 ADD_EXECUTABLE(test
@@ -24,6 +25,7 @@ ADD_EXECUTABLE(test
 	src/semiColon.cpp
 	src/exit.cpp
 	src/paren.cpp
+	src/test.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

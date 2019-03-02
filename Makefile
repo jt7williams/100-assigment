@@ -471,6 +471,36 @@ src/semiColon.cpp.s:
 	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/semiColon.cpp.s
 .PHONY : src/semiColon.cpp.s
 
+src/test.o: src/test.cpp.o
+
+.PHONY : src/test.o
+
+# target to build an object file
+src/test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
+
+src/test.i: src/test.cpp.i
+
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
 unit_tests/unit_test.o: unit_tests/unit_test.cpp.o
 
 .PHONY : unit_tests/unit_test.o
@@ -540,6 +570,9 @@ help:
 	@echo "... src/semiColon.o"
 	@echo "... src/semiColon.i"
 	@echo "... src/semiColon.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
 	@echo "... unit_tests/unit_test.o"
 	@echo "... unit_tests/unit_test.i"
 	@echo "... unit_tests/unit_test.s"

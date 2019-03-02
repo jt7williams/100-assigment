@@ -9,7 +9,8 @@ Paren::Paren(int type) {
 }
 
 bool Paren::compute(bool* f) {
-        if(f) {
+        if(*f) {
+		//std::cout<<"inside paren"<<std::endl;
 		return wrap->compute(f);
 	} else {
 		return true;

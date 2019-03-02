@@ -6,9 +6,11 @@ semiColon::semiColon() {
 }
 
 bool semiColon::compute(bool* f) {
-	if(f) {
+	if(*f) {
 		command_left->compute(f);
-		command_right->compute(f);
+		if(command_right != nullptr) {
+			command_right->compute(f);
+		}
 		return true;
 	} else {
 		return true;
