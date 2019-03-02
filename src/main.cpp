@@ -90,11 +90,9 @@ base* parsing(string & input, int* count) {
 	base* b;
 	int round = 0;
 	while(!input.empty()) {
-		/*if(input.at(0) == '(') {
-			Paren* p = new Paren();	
-			p->setWrap(parsing(input.substr(1)));
-			currentRoot=p;	
-		}*/
+		if(input.at(0) == '#') {
+			return new command("");
+		}
 		size_t comment = input.find("#");
 		size_t first_quote = input.find("\"");
 		if(comment < first_quote || first_quote == string::npos) { //errase comments
@@ -202,7 +200,9 @@ base* parsing(string & input, int* count) {
                                                                 test_tester=test_tester.substr(1);
                                                         }
                                                         test_tester = test_tester.substr(0,test_tester.size()-1);
-                                                        //cout<<test_tester<<endl;
+                                                        if(test_tester.at(test_tester.size()-1) == ' ')
+								test_tester = test_tester.substr(0, test_tester.size()-1);
+							//cout<<test_tester<<endl;
                                                         b = new test(test_tester);
                                                 } else {
 							b = new command(test_tester);
@@ -295,7 +295,7 @@ base* parsing(string & input, int* count) {
 			}
 		} else {
 			size_t first = input.find_first_of(")");
-			if(input.compare("exit") == 0) {
+			if(input.substr(0,4).compare("exit") == 0) {
                                 b = new Exit();
 				if(currentRoot == nullptr) {
 					currentRoot=b;
@@ -316,6 +316,8 @@ base* parsing(string & input, int* count) {
                                         	test_tester=test_tester.substr(1);
                                         }
                                         test_tester = test_tester.substr(0,test_tester.size()-1);
+					if(test_tester.at(test_tester.size()-1) == ' ');
+						test_tester = test_tester.substr(0, test_tester.size()-1);
                                         //cout<<test_tester<<endl;
                                         b = new test(test_tester);
                                 } else {
