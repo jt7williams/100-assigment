@@ -145,6 +145,9 @@ base* parsing(string & input, int* count) {
 						input = input.substr(quote+1);
 					}
 					first = input.find_first_of("&|;)");
+					
+					possible.erase(possible.find("\""), 1);
+					possible.erase(possible.find("\""), 1);
 					if(!input.empty()) {
 						if(first != 0) {
 							tester = input.at(first-1);
@@ -321,6 +324,10 @@ base* parsing(string & input, int* count) {
                                         //cout<<test_tester<<endl;
                                         b = new test(test_tester);
                                 } else {
+					if(test_tester.find("\"") != string::npos) {
+						test_tester.erase(test_tester.find("\""), 1);
+						test_tester.erase(test_tester.find("\""), 1);
+					}
                                         b = new command(test_tester);
                                 }
 				if(currentRoot == nullptr) {
