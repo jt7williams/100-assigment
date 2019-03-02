@@ -3,20 +3,14 @@
 #include "base.hpp"
 #include <string>
 #include <iostream>
-#include <sys/types.h>
-
-using namespace std;
-
-class test : public base {
+#include "command.hpp"
+#include <sys/stat.h>
+class test: public command {
 private:
-        char* argu[3];
-        char* one;
-        char* two;
 public:
         test();
-        test(string n);
+        test(std::string n);
         bool compute(bool* flag);
-        void set_command(string n);
         int type();
 };
 

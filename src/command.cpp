@@ -74,7 +74,9 @@ bool command::compute(bool* f){
 	//return true;
 }
 void command::set_command(std::string n){ 	
-        std::string d = " ";
+        
+	
+	std::string d = " ";
         std::string t_sub = n.substr(0, n.find(d));
 	argu[0] = new char [t_sub.length()+1];
 	std::strcpy(argu[0],t_sub.c_str());

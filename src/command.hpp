@@ -7,7 +7,7 @@
 
 
 class command : public base {
-private:
+protected:
 	char* argu[3];
 	char* one;
 	char* two;
