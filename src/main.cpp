@@ -90,6 +90,9 @@ base* parsing(string & input, int* count) {
 	base* b;
 	int round = 0;
 	while(!input.empty()) {
+		while(input.at(0) == ' ') {
+			input = input.substr(1);
+		}
 		if(input.at(0) == '#') {
 			return new command("");
 		}
