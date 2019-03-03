@@ -319,7 +319,8 @@ base* parsing(string & input, int* count) {
                                         	test_tester=test_tester.substr(1);
                                         }
                                         test_tester = test_tester.substr(0,test_tester.size()-1);
-					if(test_tester.at(test_tester.size()-1) == ' ');
+					//cout<<test_tester<<endl;
+					if(test_tester.at(test_tester.size()-1) == ' ')
 						test_tester = test_tester.substr(0, test_tester.size()-1);
                                         //cout<<test_tester<<endl;
                                         b = new test(test_tester);
