@@ -10,7 +10,7 @@ Wesley DeVore	 SID: 862081656
 
 # INTRODUCTION
 
-This program is a command shell that will be able to take in commands from user input and execute them in the correct order while handling errors given by incorrect commands. This program will use a composite of connector and command objects stored in a tree to achieve this functionality. We will be using a parsing function to split up the user input into its commands, complete with any arguments for it being converted string and passed into the command constructor, and connectors which include and, or, and the semi-colon. These objects will be passed into a queue, and the queue will execute the commands by traversing through it with each connector evaluating based on a truth value that tells it whether to pop the next command or run it.
+This program is a command shell that will be able to take in commands from user input and execute them in the correct order while handling errors given by incorrect commands. This program will use a composite of connector and command objects stored in a tree to achieve this functionality. We will be using a parsing function to split up the user input into its commands, complete with any arguments for it being placed into a string and passed into the command constructor, and connectors which include and, or, and the semi-colon. These objects will be used to create a tree while parsing, and the tree will execute the commands by traversing through itself with each connector evaluating based on a truth value that tells it whether to operate on its children or not.
 
 # UML DIAGRAM
 
@@ -73,4 +73,4 @@ The main.cpp file above, starts by creating a child process and storing its valu
 
 - [ ] [Test the and or and semiColon class for correct ordering](https://github.com/cs100/assignment-cs-100-wes-will/issues/11#issue-406038956)
 
-- [ ] [Create the queue logic that will execute base objects](https://github.com/cs100/assignment-cs-100-wes-will/issues/12#issue-406039017)
+- [ ] [Create the tree that will execute base objects](https://github.com/cs100/assignment-cs-100-wes-will/issues/12#issue-406039017)
