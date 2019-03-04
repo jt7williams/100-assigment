@@ -10,6 +10,7 @@
 #include "paren.hpp"
 #include "test.hpp"
 #include <queue>
+#include <exception>
 
 using namespace std;
 
@@ -31,7 +32,11 @@ int main (int argv, char* argc[]){
 			cout<<"$ ";
 			getline(cin, input);
 			count = 0;
-			s = parsing(input, &count);
+			try {
+				s = parsing(input, &count);
+			} catch(exception& e) {
+				cout<<"syntax error"<<endl;
+			}
 			//cout<<"here"<<endl;
 			if(count%2 != 0) {
 				cout<<"Error: uneven parentheses"<<endl;
