@@ -54,7 +54,7 @@ The main.cpp file above, starts by creating a child process and storing its valu
 Lastly, the function call stat() is used to acquire information about a file/path. this function will struct various information about the file. This stat structure contains the following fields. 
 
 struct stat_variable {
-    dev_t     st_dev;     /* ID of device containing file */
+dev_t     st_dev;     /* ID of device containing file */
     ino_t     st_ino;     /* inode number */
     mode_t    st_mode;    /* protection */
     nlink_t   st_nlink;   /* number of hard links */
