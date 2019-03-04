@@ -69,14 +69,14 @@ Lastly, the function call stat() is used to acquire information about a file/pat
                 time_t    st_ctime;   /* time of last status change */ 
 
 
-Addtionally, it is posible to check the file type using stat_variable.st_mode with the following macros. 
-S_ISREG(stat_variable.st_mode)  To check for a regular file.
-S_ISDIR(stat_variable.st_mode)  To check if the path is a DIRECTORY.
-S_ISFIFO(stat_variable.st_mode) To check FIFO(name pipe).
-S_ISCHR(stat_variable.st_mode)  To check for character device.
-S_ISBLK(stat_variable.st_mode)  To check for block device.
-S_ISLNK(stat_variable.st_mode)  To check for symbolic link.
-S_ISSOCK(stat_variable.st_mode) To check for socket.
+Addtionally, it is posible to check the file type using stat_variable.st_mode with the following macros.\
+S_ISREG(stat_variable.st_mode)  To check for a regular file.\
+S_ISDIR(stat_variable.st_mode)  To check if the path is a DIRECTORY.\
+S_ISFIFO(stat_variable.st_mode) To check FIFO(name pipe).\
+S_ISCHR(stat_variable.st_mode)  To check for character device.\
+S_ISBLK(stat_variable.st_mode)  To check for block device.\
+S_ISLNK(stat_variable.st_mode)  To check for symbolic link.\
+S_ISSOCK(stat_variable.st_mode) To check for socket.\
 
 
 
