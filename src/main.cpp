@@ -24,7 +24,7 @@ int main (int argv, char* argc[]){
 	bool flag = true;
 	while(flag) {
 		base* b = new semiColon();
-		base* s;
+		base* s = nullptr;
 		int count = 0;
 		queue<base*> order;
 		do {
@@ -40,7 +40,8 @@ int main (int argv, char* argc[]){
 		//execute(order, &flag);
 		//cout<<"before compute"<<endl;
 		//b = new command("echo hello");
-		s->compute(&flag);
+		if(s != nullptr)
+			s->compute(&flag);
 		//cout<<"after compute"<<endl;
 	}
 	
