@@ -9,6 +9,10 @@
 #include "exit.hpp"
 #include "paren.hpp"
 #include "test.hpp"
+#include "left.hpp"
+#include "right.hpp"
+#include "redirection.hpp"
+#include "pipe.hpp"
 #include <queue>
 #include <exception>
 
@@ -112,9 +116,14 @@ base* parsing(string & input, int* count) {
 		size_t a = input.find("&&");
 		size_t o = input.find("||");
 		size_t s = input.find(";");
+		size_t l = input.find("<");
+		size_t r = input.find(">");
+		size_t p = input.find("|");
+		size_t red = input.find(">>");
 		size_t ep = input.find(")");
-		if(a != string::npos || o != string::npos || s != string::npos || ep != string::npos) {
-			size_t first = input.find_first_of("&|;)");
+		if(a != string::npos || o != string::npos || s != string::npos || ep != string::npos
+			|| l != string::npos || r != string::npos || p != string::npos || red != string::npos) {
+			size_t first = input.find_first_of("&|;)<>");
 		if(input.at(0) == '(') {
 			int k = *count;
 			k=k+1;
@@ -153,7 +162,7 @@ base* parsing(string & input, int* count) {
 						possible = possible+input.substr(0,quote+1);
 						input = input.substr(quote+1);
 					}
-					first = input.find_first_of("&|;)");
+					first = input.find_first_of("&|;)<>");
 					
 					possible.erase(possible.find("\""), 1);
 					possible.erase(possible.find("\""), 1);
