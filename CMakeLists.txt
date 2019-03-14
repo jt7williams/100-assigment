@@ -14,6 +14,10 @@ ADD_EXECUTABLE(rshell
 	src/exit.cpp
 	src/paren.cpp
 	src/test.cpp
+	src/redirection.cpp
+	src/left.cpp
+	src/right.cpp
+	src/pipe.cpp
 )
 
 ADD_EXECUTABLE(test
@@ -26,6 +30,10 @@ ADD_EXECUTABLE(test
 	src/exit.cpp
 	src/paren.cpp
 	src/test.cpp
+	src/redirection.cpp
+        src/left.cpp
+        src/right.cpp
+        src/pipe.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

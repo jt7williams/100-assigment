@@ -300,7 +300,7 @@ base* parsing(string & input, int* count) {
 				currentRoot=c;
 				order.push(c);
 			}
-			if(input.at(0) == ')') {
+			if(!input.empty() && input.at(0) == ')') {
 				int k = *count;
 				k=k+1;
 				*count = k;

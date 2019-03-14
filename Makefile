@@ -48,10 +48,10 @@ RM = /usr/bin/cmake3 -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/csmajs/wmont006/assignment-cs-100-wes-will
+CMAKE_SOURCE_DIR = /home/csmajs/wdevo001/assignment-cs-100-wes-will
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/wmont006/assignment-cs-100-wes-will
+CMAKE_BINARY_DIR = /home/csmajs/wdevo001/assignment-cs-100-wes-will
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -354,6 +354,36 @@ src/exit.cpp.s:
 	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/exit.cpp.s
 .PHONY : src/exit.cpp.s
 
+src/left.o: src/left.cpp.o
+
+.PHONY : src/left.o
+
+# target to build an object file
+src/left.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/left.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/left.cpp.o
+.PHONY : src/left.cpp.o
+
+src/left.i: src/left.cpp.i
+
+.PHONY : src/left.i
+
+# target to preprocess a source file
+src/left.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/left.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/left.cpp.i
+.PHONY : src/left.cpp.i
+
+src/left.s: src/left.cpp.s
+
+.PHONY : src/left.s
+
+# target to generate assembly for a file
+src/left.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/left.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/left.cpp.s
+.PHONY : src/left.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -440,6 +470,96 @@ src/paren.cpp.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/paren.cpp.s
 	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/paren.cpp.s
 .PHONY : src/paren.cpp.s
+
+src/pipe.o: src/pipe.cpp.o
+
+.PHONY : src/pipe.o
+
+# target to build an object file
+src/pipe.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pipe.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/pipe.cpp.o
+.PHONY : src/pipe.cpp.o
+
+src/pipe.i: src/pipe.cpp.i
+
+.PHONY : src/pipe.i
+
+# target to preprocess a source file
+src/pipe.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pipe.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/pipe.cpp.i
+.PHONY : src/pipe.cpp.i
+
+src/pipe.s: src/pipe.cpp.s
+
+.PHONY : src/pipe.s
+
+# target to generate assembly for a file
+src/pipe.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pipe.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/pipe.cpp.s
+.PHONY : src/pipe.cpp.s
+
+src/redirection.o: src/redirection.cpp.o
+
+.PHONY : src/redirection.o
+
+# target to build an object file
+src/redirection.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/redirection.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/redirection.cpp.o
+.PHONY : src/redirection.cpp.o
+
+src/redirection.i: src/redirection.cpp.i
+
+.PHONY : src/redirection.i
+
+# target to preprocess a source file
+src/redirection.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/redirection.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/redirection.cpp.i
+.PHONY : src/redirection.cpp.i
+
+src/redirection.s: src/redirection.cpp.s
+
+.PHONY : src/redirection.s
+
+# target to generate assembly for a file
+src/redirection.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/redirection.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/redirection.cpp.s
+.PHONY : src/redirection.cpp.s
+
+src/right.o: src/right.cpp.o
+
+.PHONY : src/right.o
+
+# target to build an object file
+src/right.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/right.cpp.o
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/right.cpp.o
+.PHONY : src/right.cpp.o
+
+src/right.i: src/right.cpp.i
+
+.PHONY : src/right.i
+
+# target to preprocess a source file
+src/right.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/right.cpp.i
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/right.cpp.i
+.PHONY : src/right.cpp.i
+
+src/right.s: src/right.cpp.s
+
+.PHONY : src/right.s
+
+# target to generate assembly for a file
+src/right.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/right.cpp.s
+	$(MAKE) -f CMakeFiles/rshell.dir/build.make CMakeFiles/rshell.dir/src/right.cpp.s
+.PHONY : src/right.cpp.s
 
 src/semiColon.o: src/semiColon.cpp.o
 
@@ -558,6 +678,9 @@ help:
 	@echo "... src/exit.o"
 	@echo "... src/exit.i"
 	@echo "... src/exit.s"
+	@echo "... src/left.o"
+	@echo "... src/left.i"
+	@echo "... src/left.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -567,6 +690,15 @@ help:
 	@echo "... src/paren.o"
 	@echo "... src/paren.i"
 	@echo "... src/paren.s"
+	@echo "... src/pipe.o"
+	@echo "... src/pipe.i"
+	@echo "... src/pipe.s"
+	@echo "... src/redirection.o"
+	@echo "... src/redirection.i"
+	@echo "... src/redirection.s"
+	@echo "... src/right.o"
+	@echo "... src/right.i"
+	@echo "... src/right.s"
 	@echo "... src/semiColon.o"
 	@echo "... src/semiColon.i"
 	@echo "... src/semiColon.s"
