@@ -278,19 +278,29 @@ base* parsing(string & input, int* count) {
 				currentRoot=c;
 				order.push(c);
 			} else if(input.at(0) == '|') {
-				c = new Or();
-				if(input.at(2) == ' ') {
-					//cout<<"first"<<endl;
-					input = input.substr(3);
+				if(input.at(1) == '|') {
+					c = new Or();
+					if(input.at(2) == ' ') {
+						input = input.substr(3);
+					}
+					else { 
+						input = input.substr(2);
+					}
+					c->setLeft(currentRoot);
+					currentRoot=c;
+					order.push(c);
+				} else {
+					c = new Pipe();
+					if(input.at(1) == ' ') {
+						input = input.substr(2);
+					}
+					else {
+						input = input.substr(1);
+					}
+					c->setLeft(currentRoot);
+					currentRoot=c;
+					order.push(c);
 				}
-				else { 
-					//cout<<"second: "<<input<<endl;
-					input = input.substr(2);
-				}
-				//cout<<"after or: "<<input<<endl;
-				c->setLeft(currentRoot);//creating tree
-				currentRoot=c;
-				order.push(c);
 			} else if(input.at(0) == ';') {
 				c = new semiColon();
 				if(input.size() < 2) {
@@ -308,6 +318,41 @@ base* parsing(string & input, int* count) {
 				c->setLeft(currentRoot);//creating tree
 				currentRoot=c;
 				order.push(c);
+			} else if(input.at(0) == '<') {
+				c = new Left();
+                                if(input.at(1) == ' ') {
+                                        input = input.substr(2);
+                                }
+                                else {
+                                        input = input.substr(1);
+                                }
+                                c->setLeft(currentRoot);
+                                currentRoot=c;
+                                order.push(c);
+			} else if(input.at(0) == '>') {
+				if(input.at(1) == '>') {
+					c = new Redirection();
+					if(input.at(2) == ' ') {
+                                                input = input.substr(3);
+                                        }
+                                        else {  
+                                                input = input.substr(2);
+                                        }
+                                        c->setLeft(currentRoot);
+                                        currentRoot=c;
+                                        order.push(c);
+				} else {
+					c = new Right();
+                                        if(input.at(1) == ' ') {
+                                                input = input.substr(2);
+                                        }
+                                        else {
+                                                input = input.substr(1);
+                                        }
+                                        c->setLeft(currentRoot);
+                                        currentRoot=c;
+                                        order.push(c);
+				}
 			}
 			if(!input.empty() && input.at(0) == ')') {
 				int k = *count;
