@@ -1,5 +1,7 @@
 #include "left.hpp"
 
+//<
+
 Left::Left() {
 
 }

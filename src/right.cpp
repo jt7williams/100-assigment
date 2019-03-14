@@ -1,5 +1,7 @@
 #include "right.hpp"
 
+//>
+
 Right::Right() {
 
 }

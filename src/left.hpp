@@ -3,7 +3,9 @@
 #include "base.hpp"
 #include "connector.hpp"
 
-class Left: public connector {
+using namespace std;
+
+class Left: public connector { //<
 public:
         Left();
         bool compute(bool* flag);

@@ -3,7 +3,9 @@
 #include "base.hpp"
 #include "connector.hpp"
 
-class Redirection: public connector {
+using namespace std;
+
+class Redirection: public connector { //>>
 public:
         Redirection();
         bool compute(bool* flag);
