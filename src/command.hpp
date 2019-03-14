@@ -9,11 +9,14 @@
 #include <unistd.h> 
 
 class command : public base {
+private:
+	std::string name;
 public:
 	command();
 	command(std::string n);
 	bool compute(bool* flag);
 	int type();
 	std::string cutComments(std::string input);
+	std::string getName();
 };
 #endif
