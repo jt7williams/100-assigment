@@ -7,7 +7,7 @@ Pipe::Pipe() {
 bool Pipe::compute(bool* flag) {
 	int saveSTDout = dup(1);
 	set_command("src/window.hpp");
-	int fd = open(argu[0], O_WRONLY);
+	int fd = open(argu[0], O_CREAT|O_WRONLY|O_TRUNC);
 	if(fd < 0) {
 		cout<<"stream error"<<endl;
 		return false;
