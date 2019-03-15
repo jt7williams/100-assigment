@@ -66,7 +66,20 @@ TEST(EchoTEST, Tesing_Redirection){
         one = new command(str);
         EXPECT_EQ(true, one->compute(&f));
 }
+/*TEST(EchoTest, Testing_pipe){
+	ste::string str = "echo hello";
+	command* one = new command(str);
+	command* two = new command(str = "tr a-z A-Z");
+	Pipe* P = new Pipe();
+	P->setLeft(one);
+	P->setRight(two);
+	P->compute(&f);
+	int save = dup(1);
+	EXPECT_EQ("HELLO", save);
+	
+	
 
+}*/
 
 
 TEST(EchoTest, Testing_test_option_e){
