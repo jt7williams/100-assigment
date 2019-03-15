@@ -10,7 +10,7 @@ Wesley DeVore	 SID: 862081656
 
 # INTRODUCTION
 
-This program is a command shell that will be able to take in commands from user input and execute them in the correct order while handling errors given by incorrect commands. This program will use a composite of connector and command objects stored in a tree to achieve this functionality. We will be using a parsing function to split up the user input into its commands, complete with any arguments for it being placed into a string and passed into the command constructor, and connectors which include and, or, and the semi-colon. These objects will be used to create a tree while parsing, and the tree will execute the commands by traversing through itself with each connector evaluating based on a truth value that tells it whether to operate on its children or not.
+This program is a command shell that will be able to take in commands from user input and execute them in the correct order while handling errors given by incorrect commands. This program will use a composite of connector and command objects stored in a tree to achieve this functionality. We will be using a parsing function to split up the user input into its commands, complete with any arguments for it being placed into a string and passed into the command constructor, and connectors which include and, or, semi-colon, input redirection, output redirection, and pipe. These objects will be used to create a tree while parsing, and the tree will execute the commands by traversing through itself with each connector evaluating based on a truth value that tells it whether to operate on its children or not.
 
 # UML DIAGRAM
 
@@ -33,6 +33,14 @@ The *and* class will run **compute()** on its left child and only run right chil
 The *or* class will run **compute()** on its left child and only run right child if the left child **compute()** returns a negative. 
 
 The *semiColon* class will always run its left child **compute()** and then its right child **compute()** if it has a right child.
+
+The *left* class will act as input redirection and run the left child **compute()** using the right childs file as input.
+
+The *right* class will act as output redirection and run the left child **compute()** using the right childs file as output, either creating a new file or rewriting an existing file.
+
+The *redirection* class will also act as output redirection and run the left child **compute()** using the right childs file as output, either appending to a file or creating a new one.
+
+The *pipe* class will link the left child with the right child by sending the output of the left child **compute()** as the input to the right childs **compute()**
 
 # PROTOTYPE/RESEARCH
 The fork(), waitpid(), execvp(), and stat() are system calls that provide services of the operating system to the user. 
@@ -107,3 +115,14 @@ S_ISSOCK(stat_variable.st_mode) To check for socket.\
 - [ ] Create the test command class
 
 - [ ] Add test and parentheses into parsing function
+
+- [ ] Create left connector class
+
+- [ ] Create right connector class
+
+- [ ] Create redirection connector class
+
+- [ ] Create pipe connector class
+
+- [ ] Add left, right, redirection, and pipe into the parsing function
+
