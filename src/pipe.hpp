@@ -14,6 +14,6 @@ public:
         int type();
 private:
         base* command_left;
-        base* command_right;
+        base* command_right;                
 };
 #endif
