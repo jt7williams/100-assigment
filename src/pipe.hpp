@@ -3,6 +3,8 @@
 #include "base.hpp"
 #include "connector.hpp"
 
+using namespace std;
+
 class Pipe: public connector {
 public:
         Pipe();
