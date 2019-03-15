@@ -49,10 +49,10 @@ class base {
                                 std::strcpy(argu[3],n.c_str()); 
         		}
 		
-		//	printf("command: %s\n",argu[0]);
-		//	printf("argument one: %s\n",argu[1]);
-		//	printf("argument two: %s\n",argu[2]);
-		//	printf("argument three: %s\n",argu[3]);  
+			//printf("command: %s\n",argu[0]);
+			//printf("argument one: %s\n",argu[1]);
+			//printf("argument two: %s\n",argu[2]);
+			//printf("argument three: %s\n",argu[3]);  
 		}
 };
 #endif
