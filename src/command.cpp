@@ -5,6 +5,7 @@ command::command() {
 }
 command::command(std::string n){
 	name = n;
+	//std::cout<<n<<std::endl;
 	set_command(n);		
 }
 std::string command::cutComments(std::string input) {
@@ -68,5 +69,6 @@ bool command::compute(bool* f){
 }
 
 std::string command::getName() {
+	//std::cout<<name<<std::endl;
 	return name;
 }

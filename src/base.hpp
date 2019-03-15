@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <fstream>
+#include <fcntl.h>
 class base {
 	protected:
         	char* argu[3];
@@ -20,7 +21,7 @@ class base {
 		virtual int type() {return 0;}
 		virtual void setLeft(base* b) {return;}
 		virtual void setRight(base* b) {return;}
-		std::string getName() {return "";}
+		virtual std::string getName() {return "";}
 		void set_command(std::string n){       
         		std::string d = " ";
         		std::string t_sub = n.substr(0, n.find(d));

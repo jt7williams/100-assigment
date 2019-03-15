@@ -2,6 +2,7 @@
 #define _left_hpp__
 #include "base.hpp"
 #include "connector.hpp"
+#include <stdio.h>
 
 using namespace std;
 
