@@ -1,12 +1,6 @@
 #ifndef __command_hpp__
 #define __command_hpp__
 #include "base.hpp"
-#include <string>
-#include <iostream>
-#include <sys/types.h>
-#include <stdio.h> 
-#include <sys/wait.h>
-#include <unistd.h> 
 
 class command : public base {
 private:

@@ -4,6 +4,11 @@
 #include <iostream>
 #include <string.h>
 #include <cstring>
+#include <sys/types.h>
+#include <stdio.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <fstream>
 class base {
 	protected:
         	char* argu[3];
