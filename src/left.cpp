@@ -20,7 +20,8 @@ bool Left::compute(bool* flag) {
 		dup2(fd, 0);
 		command_left->compute(flag);
 		dup2(saveSTD, 0);
-	}	
+	}
+	close(fd);	
         return true;
 }
 

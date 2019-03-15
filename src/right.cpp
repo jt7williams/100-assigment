@@ -21,6 +21,7 @@ bool Right::compute(bool* flag) {
                 command_left->compute(flag);
                 dup2(saveSTD, 1);
         }
+	close(fd);
 	return true;
 }
 
