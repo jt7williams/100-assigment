@@ -114,7 +114,11 @@ S_ISSOCK(stat_variable.st_mode) To check for socket.\
 
 - [ ] Create the test command class
 
+- [ ] Test command and parentheses
+
 - [ ] Add test and parentheses into parsing function
+
+- [ ] Test for proper parsing functionality
 
 - [ ] Create left connector class
 
@@ -125,4 +129,10 @@ S_ISSOCK(stat_variable.st_mode) To check for socket.\
 - [ ] Create pipe connector class
 
 - [ ] Add left, right, redirection, and pipe into the parsing function
+
+- [ ] Test proper parsing of new classes
+
+- [ ] Test input and output redirection
+
+- [ ] Test piping
 
