@@ -39,8 +39,9 @@ class base {
 			n.erase(0,t_sub.size()+1);
 			}	
 			if(n.size() > 0){
-               			argu[2] = new char[n.length()+1];
-                		std::strcpy(argu[2],n.c_str());
+				t_sub = n.substr(0, n.find(d));
+               			argu[2] = new char[t_sub.length()+1];
+                		std::strcpy(argu[2],t_sub.c_str());
 				n.erase(0,t_sub.size()+1);			
 			}
 			if(n.size() > 0){

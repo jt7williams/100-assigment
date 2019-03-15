@@ -15,7 +15,8 @@ bool Left::compute(bool* flag) {
 	if(fd < 0) {
 		cout<<"stream error"<<endl;
 		return false;
-	} else {
+	}
+	 else {
 		dup2(fd, 0);
 		command_left->compute(flag);
 		dup2(saveSTD, 0);

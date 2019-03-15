@@ -6,8 +6,66 @@
 #include "../src/and.hpp"
 #include "../src/semiColon.hpp"
 #include "../src/test.hpp"
+#include "../src/left.hpp"
+#include "../src/right.hpp"
+#include "../src/redirection.hpp"
 bool f = true;
 
+
+TEST(EchoTEST, Tesing_left_hpp){
+	std::string str = "cat";
+	command* one = new command(str);
+	str = "names.txt";
+	command* two = new command(str);
+	Left* L = new Left();
+	L->setLeft(one);
+	L->setRight(two); 
+	
+	EXPECT_EQ(true, L->compute(&f));
+}
+TEST(EchoTEST, Tesing_right){
+        std::string str = "echo This is what Echo_Test_Output.txt holds!";
+        command* one = new command(str);
+        str = "Echo_Test_Outputs.txt";
+        command* two = new command(str);
+        Right* R = new Right();
+        R->setLeft(one);
+        R->setRight(two);
+	EXPECT_EQ(true, R->compute(&f));
+	
+	str = "cat";
+	Left* L = new Left();
+	one = new command(str);
+	L->setLeft(one);
+	str = "Echo_Test_Outputs.txt";
+	two = new command(str);
+	L->setRight(two);
+        EXPECT_EQ(true, L->compute(&f));
+
+}
+TEST(EchoTEST, Tesing_Redirection){
+        std::string str = "echo We appended this to the file. Deleting the file";
+        command* one = new command(str);
+        str = "Echo_Test_Outputs.txt";
+        command* two = new command(str);
+        Redirection* Redir = new Redirection();
+        Redir->setLeft(one);
+        Redir->setRight(two);
+        EXPECT_EQ(true, Redir->compute(&f));
+
+        str = "cat";
+        Left* L = new Left();
+        one = new command(str);
+        L->setLeft(one);
+        str = "Echo_Test_Outputs.txt";
+        two = new command(str);
+        L->setRight(two);
+        EXPECT_EQ(true, L->compute(&f));
+
+        str = "rm Echo_Test_Outputs.txt";
+        one = new command(str);
+        EXPECT_EQ(true, one->compute(&f));
+}
 
 
 
