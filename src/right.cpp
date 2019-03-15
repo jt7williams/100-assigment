@@ -7,7 +7,20 @@ Right::Right() {
 }
 
 bool Right::compute(bool* flag) {
-        return true;
+   	
+	int saveSTD = dup(1);
+        set_command(command_right->getName());
+        
+        int fd = open(argu[0], O_CREAT|O_WRONLY|O_TRUNC); 
+	if(fd < 0) {
+                cout<<"stream error"<<endl;
+                return false;
+        } 
+	else {	
+                dup2(fd, 1);
+                command_left->compute(flag);
+                dup2(saveSTD, 1);
+        }
 }
 
 void Right::setLeft(base* b) {
