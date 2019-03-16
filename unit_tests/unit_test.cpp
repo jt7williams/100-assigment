@@ -20,7 +20,7 @@ TEST(EchoTEST, Echo_True){
 	EXPECT_EQ(true, one->compute(&f));
 
 }
-TEST(EchoTEST, Tesing_left_hpp){
+TEST(EchoTEST, Testing_left_hpp){
 	std::string str = "cat";
 	command* one = new command(str);
 	str = "names.txt";
@@ -31,7 +31,7 @@ TEST(EchoTEST, Tesing_left_hpp){
 	
 	EXPECT_EQ(true, L->compute(&f));
 }
-TEST(EchoTEST, Tesing_right){
+TEST(EchoTEST, Testing_right){
         std::string str = "echo This is what Echo_Test_Output.txt holds!";
         command* one = new command(str);
         str = "Echo_Test_Outputs.txt";
@@ -51,7 +51,7 @@ TEST(EchoTEST, Tesing_right){
         EXPECT_EQ(true, L->compute(&f));
 
 }
-TEST(EchoTEST, Tesing_Redirection){
+TEST(EchoTEST, Testing_Redirection){
         std::string str = "echo We appended this to the file. Deleting the file";
         command* one = new command(str);
         str = "Echo_Test_Outputs.txt";
