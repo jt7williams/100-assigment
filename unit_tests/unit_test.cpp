@@ -8,10 +8,18 @@
 #include "../src/test.hpp"
 #include "../src/left.hpp"
 #include "../src/right.hpp"
+#include "../src/pipe.hpp"
 #include "../src/redirection.hpp"
+#include "../src/paren.hpp"
 bool f = true;
 
+TEST(EchoTEST, Echo_True){
+	std::string str = "echo true";
+	command* one = new command(str);
+	
+	EXPECT_EQ(true, one->compute(&f));
 
+}
 TEST(EchoTEST, Tesing_left_hpp){
 	std::string str = "cat";
 	command* one = new command(str);
@@ -66,26 +74,39 @@ TEST(EchoTEST, Tesing_Redirection){
         one = new command(str);
         EXPECT_EQ(true, one->compute(&f));
 }
-/*TEST(EchoTest, Testing_pipe){
-	ste::string str = "echo hello";
+
+TEST(EchoTest, Testing_pipe){
+	std::string str = "echo hello";
 	command* one = new command(str);
-	command* two = new command(str = "tr a-z A-Z");
+		    str = "tr a-z A-Z";
+	command* two = new command(str);
 	Pipe* P = new Pipe();
 	P->setLeft(one);
 	P->setRight(two);
-	P->compute(&f);
-	int save = dup(1);
-	EXPECT_EQ("HELLO", save);
 	
 	
+	EXPECT_EQ(true, P->compute(&f));
+}
+TEST(EchoTest, Testing_pipe2_expect_COMMAND_NOT_FOUND){
+	
+	std::string str = "names.txt";
+        command* one = new command(str);
+                    str = "tr a-z A-Z";
+        command* two = new command(str);
+        Pipe* P = new Pipe();
+        P->setLeft(one);
+        P->setRight(two);
 
-}*/
+
+        EXPECT_EQ(true, P->compute(&f));
+
+}
 
 
 TEST(EchoTest, Testing_test_option_e){
 	
 	//TESTING WITH  EXISTING DIRECTORY
-	std::string t = "-e src/";
+	std::string t = "-e src";
 	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 	
@@ -104,7 +125,7 @@ TEST(EchoTest, Testing_test_option_e){
 TEST(EchoTest, Testing_test_no_option_default_e){
 
 	//TESTING FOR EXISTING DIRECTORY
-	std::string t = "src/";
+	std::string t = "src";
 	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 	
@@ -122,7 +143,7 @@ TEST(EchoTest, Testing_test_no_option_default_e){
 TEST(EchotEST, Testing_test_option_f){
 	
 	//TESTING WITH EXISTING DIRECTORY
-	std::string t = "-f src/";
+	std::string t = "-f src";
 	test* one = new test(t);
 	EXPECT_EQ(0, one->compute(&f));
 
@@ -139,7 +160,7 @@ TEST(EchotEST, Testing_test_option_f){
 TEST(EchoTest, Tesing_test_option_d){
 	
 	//TESTING WITH EXISTING DIRECTORY
-	std::string t = "-d src/";
+	std::string t = "-d src";
 	test* one = new test(t);
 	EXPECT_EQ(1, one->compute(&f));
 
