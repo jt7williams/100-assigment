@@ -20,6 +20,7 @@ class base {
 		base(){ for(int i = 0; i < 5; i++) argu[i] = NULL;}
 		virtual bool compute(bool* flag) {return 0;}
 		virtual int type() {return 0;}
+		virtual int get_status(){return 0;}
 		virtual void setLeft(base* b) {return;}
 		virtual void setRight(base* b) {return;}
 		virtual std::string getName() {return "";}

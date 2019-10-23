@@ -1,0 +1,34 @@
+echo "PRECEDENCE TESTS:"
+(echo Truee)
+(echo Truee && echo Truee)
+(echo Truee || echo Falsee)
+(echo Truee && (echo "Truee in quotes"))
+(echo Truee || (echo Falsee))
+(echo Truee && (echo Truee && (echo Truee)))
+([ -e test.txt ]) && (echo Truee)
+(echo Truee || echo Falsee) && echo Truee
+(echo Truee && echo Truee) && (echo Truee && echo Truee)
+(echo Truee && echo Truee) || (echo Falsee && echo Falsee)
+
+echo "TEST TESTS:"
+test test.txt
+test false.txt
+test -e test.txt
+test -e false.txt
+test -f test.txt
+test -f false.txt
+test -f test_dir
+test -d test_dir
+[ -d false_dir ]
+test -d test.txt
+test -e test.txt && echo Truee
+test -e false.txt || echo Truee
+[ -e test.txt ] || echo Falsee
+test -e false.txt && echo Falsee
+(test -e test.txt)
+[ -d test.txt ]
+(test -e test.txt && echo Truee)
+([ -d test.txt ] && echo Falsee)
+(test -d test.txt && (echo True A && echo True B))
+(test -e test.txt && (echo True A && echo "True B with quotes"))
+exit

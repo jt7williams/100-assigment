@@ -1,5 +1,5 @@
 #include "pipe.hpp"
-
+#include "command.hpp"
 Pipe::Pipe() {
 
 }
@@ -29,6 +29,8 @@ bool Pipe::compute(bool* flag) {
 		dup2(saveSTDin, 0);
 	}
 	close(fd);
+	command* rmf = new command("rm src/window.hpp");
+		 rmf->compute(flag);
 	return true;
 }
 

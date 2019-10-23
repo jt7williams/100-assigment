@@ -48,10 +48,10 @@ RM = /usr/bin/cmake3 -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/csmajs/wdevo001/assignment-cs-100-wes-will
+CMAKE_SOURCE_DIR = /home/csmajs/wmont006/assignment-cs-100-wes-will
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/wdevo001/assignment-cs-100-wes-will
+CMAKE_BINARY_DIR = /home/csmajs/wmont006/assignment-cs-100-wes-will
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wdevo001/assignment-cs-100-wes-will/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/wmont006/assignment-cs-100-wes-will/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

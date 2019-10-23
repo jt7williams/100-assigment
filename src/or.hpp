@@ -4,14 +4,17 @@
 #include "base.hpp"
 
 class Or: public connector {
+
 public:
 	Or();
 	bool compute(bool* flag);
 	void setLeft(base* b);
 	void setRight(base* b);
 	int type();
+	int get_status();
 private:
 	base* command_left;
 	base* command_right;
+	int status;
 };
 #endif
